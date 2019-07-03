@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import cn.edu.sjtu.shareservice.Dao.SharedPictureDao;
@@ -12,6 +13,7 @@ import cn.edu.sjtu.shareservice.Entity.SharedPicture;
 import cn.edu.sjtu.shareservice.Entity.User;
 import cn.edu.sjtu.shareservice.Service.SharedPictureService;
 
+@Service
 public class SharedPictureServiceImpl implements SharedPictureService {
 
     @Autowired

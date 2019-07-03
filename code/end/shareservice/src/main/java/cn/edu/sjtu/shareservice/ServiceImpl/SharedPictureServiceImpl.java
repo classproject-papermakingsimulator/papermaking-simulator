@@ -33,5 +33,19 @@ public class SharedPictureServiceImpl implements SharedPictureService {
         }
         return "0";
     }
+
+    @Override
+    public byte[] get(int num) {
+        byte[] data = null;
+        if(sharedPictureDao.findAll() != null) {
+            if (num < sharedPictureDao.findAll().size()) {
+                SharedPicture file = sharedPictureDao.findAll().get(num);
+                if(file != null){
+                    data = file.getContent().getData();
+                }
+            }
+        }
+        return data;
+    }
     
 }

@@ -15,6 +15,7 @@ public class SharedPicture {
     private Binary content; // 文件内容
     private String contentType; // 文件类型
     private long size; // 文件大小
+    private long like;
 
     /**
      * @return the content
@@ -87,5 +88,17 @@ public class SharedPicture {
      */
     public void setSize(long size) {
         this.size = size;
+    }
+    /**
+     * @return the like
+     */
+    public long getLike() {
+        return like;
+    }
+    /**
+     * @param like the like to set
+     */
+    public void setLike(long like) {
+        this.like = like;
     }
 }

@@ -7,5 +7,7 @@ import cn.edu.sjtu.shareservice.Entity.User;
 public interface SharedPictureService {
 
 	String save(MultipartFile file, User user);
+
+	byte[] get(int num);
     
 }

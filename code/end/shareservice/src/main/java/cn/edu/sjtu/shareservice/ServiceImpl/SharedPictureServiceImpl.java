@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cn.edu.sjtu.shareservice.Dao.SharedPictureDao;
 import cn.edu.sjtu.shareservice.Entity.SharedPicture;
-import cn.edu.sjtu.shareservice.Entity.User;
 import cn.edu.sjtu.shareservice.Service.SharedPictureService;
 
 @Service
@@ -20,10 +19,11 @@ public class SharedPictureServiceImpl implements SharedPictureService {
     private SharedPictureDao sharedPictureDao;
 
     @Override
-    public String save(MultipartFile file, User user) {
+    public String save(MultipartFile file) {
+        String username = file.getOriginalFilename();
         try {
             SharedPicture target = new SharedPicture();
-            target.setName(user.getUsername());
+            target.setName(username);
             target.setCreatedTime(new Date());
             target.setContent(new Binary(file.getBytes()));
             target.setContentType(file.getContentType());

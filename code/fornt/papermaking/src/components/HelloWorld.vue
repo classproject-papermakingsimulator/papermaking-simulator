@@ -79,6 +79,7 @@
           awesome-vue
         </a>
       </li>
+      <input @change="uploadPhoto($event)" type="file" class="kyc-passin">
     </ul>
   </div>
 </template>
@@ -89,6 +90,22 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    uploadPhoto (e) {
+      var file = e.target.files[0]
+      var newfile = new File([file], 'BlackAngle.jpg', {
+        type: file.type})
+      var formData = new FormData()
+      formData.append('file', newfile)
+      this.axios.post('/api/share', formData)
+        .then((response) => {
+        })
+        .catch((error) => {
+          alert(error)
+        })
+      this.imgfile = 'http://localhost:8080/api/show?num=' + 0
     }
   }
 }

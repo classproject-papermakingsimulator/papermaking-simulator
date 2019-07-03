@@ -6,3 +6,4 @@
   * Medieval Farmer v1.1
   * Medieval Village Pack
   * Fantasy landscape
+  * Bathroom Props (Assets Store Free)

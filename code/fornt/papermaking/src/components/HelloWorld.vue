@@ -80,6 +80,7 @@
         </a>
       </li>
       <input @change="uploadPhoto($event)" type="file" class="kyc-passin">
+      <img :src="imgfile" width="500" height="500">
     </ul>
   </div>
 </template>
@@ -89,7 +90,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      imgfile: 'http://localhost:8080/api/show?num=0'
     }
   },
   methods: {
@@ -105,7 +107,7 @@ export default {
         .catch((error) => {
           alert(error)
         })
-      this.imgfile = 'http://localhost:8080/api/show?num=' + 0
+        this.imgfile = 'http://localhost:8080/api/show?num=0'
     }
   }
 }

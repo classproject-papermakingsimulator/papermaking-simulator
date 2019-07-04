@@ -57,3 +57,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+!furnace.unitypackage

@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import cn.edu.sjtu.feignclient.Config.FeignSupportConfig;
+import cn.edu.sjtu.feignclient.Config.ShareServiceHystrix;
 
 
-@FeignClient(value = "service-share", configuration = FeignSupportConfig.class)
+@FeignClient(value = "service-share", configuration = FeignSupportConfig.class, fallback = ShareServiceHystrix.class)
 public interface ShareFeign {
     
     @RequestMapping("/")

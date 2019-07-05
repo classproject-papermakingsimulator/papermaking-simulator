@@ -7,3 +7,5 @@
   * zuul
   * config
   * bus
+  * hystrix dashboard
+  * hystrix turbine

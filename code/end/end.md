@@ -5,3 +5,5 @@
   * feign
   * hystrix
   * zuul
+  * config
+  * bus

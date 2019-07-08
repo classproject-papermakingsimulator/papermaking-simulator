@@ -12,7 +12,9 @@ public class Move : MonoBehaviour
     private Quaternion qu;
     private Vector3 qe;
     public float speed;
+    private float rspeed;
     public float f;
+    private CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class Move : MonoBehaviour
         animator = GetComponent<Animator>();
         if (animator.layerCount >= 2)
             animator.SetLayerWeight(1, 1);
+        controller = GetComponent<CharacterController>();
+        rspeed = 2 * speed;
     }
 
     // Update is called once per frame
@@ -31,8 +35,13 @@ public class Move : MonoBehaviour
         if (animator == null)
             return;
         AnimatorStateInfo stataInfo = animator.GetCurrentAnimatorStateInfo(0);
-
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift) && !animator.GetBool("isMoveS"))
+        {
+            animator.SetBool("isRun", true);
+        }
+        else
+            animator.SetBool("isRun", false);
+        if (Input.GetKeyDown(KeyCode.W))
         {
             animator.SetBool("isMove", true);
         }
@@ -45,9 +54,16 @@ public class Move : MonoBehaviour
             qu = transform.rotation;
             qe = qu.eulerAngles;
             float k = qe.y;
-            te.z += speed * Mathf.Cos(k * Mathf.Deg2Rad);
-            te.x += speed * Mathf.Sin(k * Mathf.Deg2Rad);
-            GetComponent<Transform>().position = te;
+            if (animator.GetBool("isRun"))
+            {
+                controller.Move(Vector3.forward * rspeed * Mathf.Cos(k * Mathf.Deg2Rad));
+                controller.Move(Vector3.right * rspeed * Mathf.Sin(k * Mathf.Deg2Rad));
+            }
+            else
+            {
+                controller.Move(Vector3.forward * speed * Mathf.Cos(k * Mathf.Deg2Rad));
+                controller.Move(Vector3.right * speed * Mathf.Sin(k * Mathf.Deg2Rad));
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -62,9 +78,8 @@ public class Move : MonoBehaviour
             qu = transform.rotation;
             qe = qu.eulerAngles;
             float k = qe.y;
-            te.z -= speed * Mathf.Cos(k * Mathf.Deg2Rad);
-            te.x -= speed * Mathf.Sin(k * Mathf.Deg2Rad);
-            GetComponent<Transform>().position = te;
+            controller.Move(Vector3.back * speed * Mathf.Cos(k * Mathf.Deg2Rad));
+            controller.Move(Vector3.left * speed * Mathf.Sin(k * Mathf.Deg2Rad));
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -86,14 +101,20 @@ public class Move : MonoBehaviour
         {
             SceneManager.LoadScene("StartGame");
         }
-
         //if (Input.GetButtonDown("Vertical"))
         //{
         //    animator.SetBool("isMove", true);
         //}
-        //if(Input.GetButtonUp("Vertical"))
+        //if (Input.GetButtonUp("Vertical"))
         //{
         //    animator.SetBool("isMove", false);
         //}
+        if (!controller.isGrounded)
+            controller.Move(Vector3.down * speed);
+    }
+
+    void FixedUpdate()
+    {
     }
 }
+

@@ -31,6 +31,18 @@ public class HighlightingController : MonoBehaviour
 		
 		AfterUpdate();
 	}
-	
-	protected virtual void AfterUpdate() {}
+
+    void OnMouseEnter()
+    {
+        ho.ConstantSwitch();
+        print("enter");
+    }
+
+    void OnMouseDown()
+    {
+        ho.ConstantSwitch();
+        print("down");
+    }
+
+    protected virtual void AfterUpdate() {}
 }

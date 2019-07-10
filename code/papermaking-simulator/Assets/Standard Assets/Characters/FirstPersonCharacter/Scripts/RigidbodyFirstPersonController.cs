@@ -115,12 +115,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-
         private void Start()
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
 

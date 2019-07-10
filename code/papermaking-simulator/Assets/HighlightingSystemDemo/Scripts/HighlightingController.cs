@@ -35,7 +35,11 @@ public class HighlightingController : MonoBehaviour
     void OnMouseEnter()
     {
         ho.ConstantSwitch();
-        print("enter");
+    }
+
+    void OnMouseExit()
+    {
+        ho.ConstantOff();
     }
 
     void OnMouseDown()

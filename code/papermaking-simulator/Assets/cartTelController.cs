@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using Valve.VR;
 
 public class cartTelController : MonoBehaviour
 {
+    //private SteamVR_Action_Boolean _kk = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("InteractUI");
+   
+    
     public static cartTelController Instance
     {
         get { return s_Instance; }
@@ -30,7 +34,11 @@ public class cartTelController : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
+    //    if (_kk.GetState(SteamVR_Input_Sources.Any))
+    //    {
+    //        ho.ConstantSwitch();
+    //    }
         AfterUpdate();
     }
 
@@ -38,6 +46,8 @@ public class cartTelController : MonoBehaviour
     {
         get { return tel; }
     }
+
+
 
     void OnMouseEnter()
     {

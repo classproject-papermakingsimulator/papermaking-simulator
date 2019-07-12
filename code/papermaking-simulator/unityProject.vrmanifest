@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.papermakingsimulator.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\93152\\Documents\\GitHub\\papermaking-simulator\\code\\papermaking-simulator\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "papermaking-simulator [Testing]"
+        }
+      }
+    }
+  ]
+}

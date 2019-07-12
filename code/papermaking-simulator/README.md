@@ -7,3 +7,11 @@
   * Medieval Village Pack
   * Fantasy landscape
   * Bathroom Props (Assets Store Free)
+  * Standard Assets
+  * SledgeHammer
+  * VRTK 3.3
+  * SteamVR 1.2.3
+  * Survival Character
+  * Wooden cart
+  
+

@@ -65,5 +65,11 @@ public class cartTelController : MonoBehaviour
         s_Instance = this;
     }
 
+    public void Point()
+    {
+        tel = true;
+        s_Instance = this;
+    }
+
     protected virtual void AfterUpdate() { }
 }

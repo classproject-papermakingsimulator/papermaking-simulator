@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class boilInteract : MonoBehaviour
 {
-    public GameObject inventory;
+    public InventoryAdd inventory;
     private int count;
 
     public void boil()
     {
-
+        inventory.minus();
+        inventory.add();
     }
 }

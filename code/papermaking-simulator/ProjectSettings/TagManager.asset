@@ -11,6 +11,9 @@ TagManager:
   - tub
   - boil
   - pail
+  - ash
+  - desk
+  - cut
   layers:
   - Default
   - TransparentFX

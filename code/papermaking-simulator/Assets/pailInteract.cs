@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class pailInteract : MonoBehaviour
 {
-    public GameObject inventory;
+    public InventoryAdd inventory;
     private int count;
 
     public void pail()
     {
-
+        inventory.minus();
+        inventory.add();
     }
 }

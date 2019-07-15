@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ashInteract : MonoBehaviour
 {
-    public GameObject inventory;
+    public InventoryAdd inventory;
     private int count;
 
     public void dry()
     {
-
+        inventory.minus();
+        inventory.add();
     }
 }

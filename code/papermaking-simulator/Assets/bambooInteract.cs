@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bambooInteract : MonoBehaviour
 {
-    public GameObject inventory;
+    public InventoryAdd inventory;
     private int count;
 
     private void Awake()
@@ -25,6 +25,7 @@ public class bambooInteract : MonoBehaviour
             count = 0;
             //inventory.??
             gameObject.SetActive(false);
+            inventory.add();
         }
     }
 }

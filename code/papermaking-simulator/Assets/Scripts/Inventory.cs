@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void UpdateNumWhenAdd()//以指定“待去皮竹子”为例
+    public void UpdateNumWhenAdd(Transform target)//以指定“待去皮竹子”为例
     {
 
 

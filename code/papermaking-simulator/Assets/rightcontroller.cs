@@ -80,12 +80,30 @@
             cartTelController cart = null;
             bambooInteract bamboo = null;
             poolInteract pool = null;
+            ashInteract ash = null;
+            boilInteract boil = null;
+            pailInteract pail = null;
+            tubInteract tub = null;
+            pressInteract desk = null;
+            cutInteract knife = null;
             if (target.tag.Equals("cart"))
                 cart = (target != null ? target.GetComponent<cartTelController>() : null);
             if(target.tag.Equals("bamboo"))
                 bamboo = (target != null ? target.GetComponent<bambooInteract>() : null);
             if (target.tag.Equals("pool"))
                 pool = (target != null ? target.GetComponent<poolInteract>() : null);
+            if (target.tag.Equals("ash"))
+                ash = (target != null ? target.GetComponent<ashInteract>() : null);
+            if (target.tag.Equals("boil"))
+                boil = (target != null ? target.GetComponent<boilInteract>() : null);
+            if (target.tag.Equals("pail"))
+                pail = (target != null ? target.GetComponent<pailInteract>() : null);
+            if (target.tag.Equals("tub"))
+                tub = (target != null ? target.GetComponent<tubInteract>() : null);
+            if (target.tag.Equals("desk"))
+                desk = (target != null ? target.GetComponent<pressInteract>() : null);
+            if (target.tag.Equals("cut"))
+                knife = (target != null ? target.GetComponent<cutInteract>() : null);
             if (cart != null)
             {
                 cart.Point();
@@ -97,6 +115,30 @@
             if(pool != null)
             {
                 pool.steep();
+            }
+            if (ash != null)
+            {
+                ash.dry();
+            }
+            if(boil != null)
+            {
+                boil.boil();
+            }
+            if(pail != null)
+            {
+                pail.pail();
+            }
+            if (tub != null)
+            {
+                tub.filter();
+            }
+            if(desk != null)
+            {
+                desk.press();
+            }
+            if (knife != null)
+            {
+                knife.cut();
             }
         }
 

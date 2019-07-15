@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class pressInteract : MonoBehaviour
 {
-    public GameObject inventory;
+    public InventoryAdd inventory;
     private int count;
 
     public void press()
     {
-
+        inventory.minus();
+        inventory.add();
     }
 }

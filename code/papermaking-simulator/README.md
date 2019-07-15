@@ -13,5 +13,7 @@
   * SteamVR 1.2.3
   * Survival Character
   * Wooden cart
-  
+  * CorcraProps Furniture Lite
+  * Carpenter's Tools
 
+* you also need to import the package in the model folder

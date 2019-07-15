@@ -6,6 +6,11 @@ TagManager:
   tags:
   - ExcludeTeleport
   - cart
+  - bamboo
+  - pool
+  - tub
+  - boil
+  - pail
   layers:
   - Default
   - TransparentFX

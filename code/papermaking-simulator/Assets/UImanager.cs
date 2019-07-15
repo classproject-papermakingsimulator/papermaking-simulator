@@ -6,31 +6,32 @@ using VRTK;
 public class UImanager : MonoBehaviour
 {
     public GameObject telUI;
+    public GameObject inventoryUI;
     public GameObject eyecamera;
     public VRTK_ControllerEvents leftController;
     public VRTK_ControllerEvents rightController;
     // Start is called before the first frame update
-    protected bool state;
+    protected bool inventoryState;
 
     protected virtual void OnEnable()
     {
-        state = false;
+        inventoryState = false;
         RegisterEvents(leftController);
         RegisterEvents(rightController);
     }
 
     protected virtual void RegisterEvents(VRTK_ControllerEvents events)
     {
-        if (events != null)
-        {
-            events.ButtonTwoPressed += ButtonTwoPressed;
-        }
+        //if (events != null)
+        //{
+        //    events.ButtonTwoPressed += ButtonTwoPressed;
+        //}
     }
 
-    protected virtual void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e)
+    public void InventoryButton()
     {
-        state = !state;
-        Move();
+        inventoryState = !inventoryState;
+
     }
 
     protected virtual void Move()
@@ -57,7 +58,6 @@ public class UImanager : MonoBehaviour
             telUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            state = true;
             Move();
         }
         else
@@ -65,8 +65,22 @@ public class UImanager : MonoBehaviour
             telUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            state = false;
         }
-           
+        if (inventoryState)
+        {
+            inventoryUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Move();
+            inventoryUI.transform.position = telUI.transform.position;
+            inventoryUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
+        }
+        else
+        {
+            inventoryUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
     }
 }

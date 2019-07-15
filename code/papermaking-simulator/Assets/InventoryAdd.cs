@@ -17,16 +17,25 @@ public class InventoryAdd : MonoBehaviour
     public void minus()
     {
         String tmp;
-        tmp = text.GetComponent<Text>().text;
+        tmp = mtext.GetComponent<Text>().text;
         int n = int.Parse(tmp);
-        if (n != 0)
+        if (n > 0)
         {
             n--;
             tmp = n.ToString();
-            text.GetComponent<Text>().text = tmp;
+            mtext.GetComponent<Text>().text = tmp;
         }
         else
+        {
+            String temp;
+            temp = text.GetComponent<Text>().text;
+            int nd = int.Parse(temp);
+            nd--;
+            temp = nd.ToString();
+            text.GetComponent<Text>().text = temp;
             print("原料不足");
+        }
+           
     }
 
     public void add()

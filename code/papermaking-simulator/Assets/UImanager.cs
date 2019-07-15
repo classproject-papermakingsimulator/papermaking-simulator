@@ -6,6 +6,7 @@ using VRTK;
 public class UImanager : MonoBehaviour
 {
     public GameObject telUI;
+    public GameObject eyecamera;
     public VRTK_ControllerEvents leftController;
     public VRTK_ControllerEvents rightController;
     // Start is called before the first frame update
@@ -40,11 +41,11 @@ public class UImanager : MonoBehaviour
         {
             transform.position = new Vector3(headset.position.x, playArea.position.y, headset.position.z);
             telUI.transform.localPosition = headset.forward * 0.5f;
-            telUI.transform.localPosition = new Vector3(telUI.transform.localPosition.x, 0f, telUI.transform.localPosition.z);
+            telUI.transform.localPosition = new Vector3(telUI.transform.localPosition.x, eyecamera.transform.localPosition.y, telUI.transform.localPosition.z);
             Vector3 targetPosition = headset.position;
             targetPosition.y = playArea.transform.position.y;
             telUI.transform.LookAt(targetPosition);
-            telUI.transform.localEulerAngles = new Vector3(0f, telUI.transform.localEulerAngles.y, 0f);
+            telUI.transform.localEulerAngles = new Vector3(0f, telUI.transform.localEulerAngles.y + 180, 0f);
         }
     }
 

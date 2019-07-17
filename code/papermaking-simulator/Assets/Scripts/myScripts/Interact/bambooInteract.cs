@@ -15,12 +15,13 @@ public class bambooInteract : MonoBehaviour
     public void cutdown()
     {
         count++;
+        print(count);
         isDown();
     }
 
     private void isDown()
     {
-        if(count == 4)
+        if(count == 10)
         {
             count = 0;
             //inventory.??

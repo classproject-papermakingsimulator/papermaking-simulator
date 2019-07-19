@@ -42,7 +42,7 @@ public class UImanager : MonoBehaviour
         {
             transform.position = new Vector3(headset.position.x, playArea.position.y, headset.position.z);
             telUI.transform.localPosition = headset.forward * 0.5f;
-            telUI.transform.localPosition = new Vector3(telUI.transform.localPosition.x, eyecamera.transform.localPosition.y, telUI.transform.localPosition.z);
+            telUI.transform.localPosition = new Vector3(telUI.transform.localPosition.x, eyecamera.transform.localPosition.y * (float)1.5, telUI.transform.localPosition.z);
             Vector3 targetPosition = headset.position;
             targetPosition.y = playArea.transform.position.y;
             telUI.transform.LookAt(targetPosition);

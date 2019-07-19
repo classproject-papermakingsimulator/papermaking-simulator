@@ -37,12 +37,18 @@ public class cutBamboo : VRTK_InteractableObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Vector3 v = gameObject.GetComponent<Rigidbody>().velocity;
+        double vm = Mathf.Sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
         if (VRTK_ControllerReference.IsValid(controllerReference) && IsGrabbed())
         {
             if (collision.collider.tag == "bamboo")
             {
-                GameObject.Find(collision.collider.name).GetComponent<bambooInteract>().cutdown();
+                GameObject.Find(collision.collider.name).GetComponent<bambooInteract>().cutdown(vm);
+                ContactPoint contactPoint = collision.contacts[0];
+                Vector3 newDir = Vector3.zero;
+                Vector3 curDir = transform.TransformDirection(Vector3.forward);
+                newDir = Vector3.Reflect(curDir, contactPoint.normal);
+                Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, newDir);
             }
             collisionForce = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude * impactMagnifier;
             var hapticStrength = collisionForce / maxCollisionForce;

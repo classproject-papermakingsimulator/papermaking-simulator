@@ -5,25 +5,23 @@ using VRTK;
 
 public class BambooGrab : VRTK_InteractableObject
 {
-    public GameObject projectile;
-    public Camera body;
+    public Transform body;
     public InventoryAdd inventoryAdd;
     public float projectileSpeed = 1000f;
 
     protected virtual void InteractableObjectUsed(object sender, InteractableObjectEventArgs e)
     {
         inventoryAdd = GameObject.Find("GridImage").GetComponent<InventoryAdd>();
+        body = GameObject.Find("Controller(right)").GetComponent<Transform>();
         if(inventoryAdd.minus())
         {
-            if (projectile != null)
+            isGrabbable = false;
+            Rigidbody projectileRigidbody = gameObject.GetComponent<Rigidbody>();
+            if (projectileRigidbody != null)
             {
-                GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
-                Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-                if (projectileRigidbody != null)
-                {
-                    projectileRigidbody.AddForce(projectile.transform.forward * projectileSpeed);
-                }
+                projectileRigidbody.AddForce(body.transform.forward * projectileSpeed);
             }
+            isGrabbable = true;
         }
         else
         {

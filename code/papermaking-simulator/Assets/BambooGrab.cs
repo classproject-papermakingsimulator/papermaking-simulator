@@ -3,54 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class BambooGrab : VRTK_InteractableObject
+public class BambooGrab : GrabAndThrow
 {
-    public VRTK_InteractableObject linkedObject;
-    GameObject temp;
-    public Transform body;
-    public InventoryAdd inventoryAdd;
-    public float projectileSpeed = 1000f;
-
-    protected virtual void InteractableObjectUsed(object sender, InteractableObjectEventArgs e)
+    public GameObject newbamboo;
+    private void OnTriggerEnter(Collider other)
     {
-  
-        temp = GameObject.Find("VR/[VRTK_SDKManager]/[VRTK_SDKSetups]/SteamVR/[CameraRig]/Controller (right)");
-        body = temp.GetComponent<Transform>();
-        StopGrabbingInteractions();
-        isGrabbable = false;
-        Rigidbody projectileRigidbody = gameObject.GetComponent<Rigidbody>();
-        if (projectileRigidbody != null)
+        if(other.tag == "ash")
         {
-            projectileRigidbody.isKinematic = false;
-            projectileRigidbody.AddForce(body.transform.forward * projectileSpeed);
+            Timer.Register(5f, () => OnChange());
         }
-        isGrabbable = true;
-       
     }
 
-    public void pick()
+    void OnChange()
     {
-        inventoryAdd = GameObject.Find("Bamboo/b1").GetComponent<bambooInteract>().inventory;
-        inventoryAdd.add();
+        Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
+        GameObject pooledBamboo = Instantiate(newbamboo, position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
-
-    protected virtual void OnEnable()
-    {
-        linkedObject = (linkedObject == null ? GetComponent<VRTK_InteractableObject>() : linkedObject);
-
-        if (linkedObject != null)
-        {
-            linkedObject.InteractableObjectUsed += InteractableObjectUsed;
-        }
-    }
-
-    protected virtual void OnDisable()
-    {
-        if (linkedObject != null)
-        {
-            linkedObject.InteractableObjectUsed -= InteractableObjectUsed;
-        }
-    }
-
 }

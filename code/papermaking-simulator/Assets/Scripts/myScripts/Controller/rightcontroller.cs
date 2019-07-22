@@ -81,7 +81,7 @@
             BambooGrab bamboos = null;
             cartTelController cart = null;
             poolInteract pool = null;
-            ashInteract ash = null;
+            pooledBamboo ashed = null;
             boilInteract boil = null;
             transform pail = null;
             tubInteract tub = null;
@@ -92,7 +92,7 @@
             if (target.tag.Equals("pool"))
                 pool = (target != null ? target.GetComponent<poolInteract>() : null);
             if (target.tag.Equals("ash"))
-                ash = (target != null ? target.GetComponent<ashInteract>() : null);
+                ashed = (target != null ? target.GetComponent<ashInteract>() : null);
             if (target.tag.Equals("boil"))
                 boil = (target != null ? target.GetComponent<boilInteract>() : null);
             if (target.tag.Equals("pail"))
@@ -145,7 +145,7 @@
             }
             if(bamboos != null)
             {
-                bamboos.pick();
+                bamboos.pick("Bamboo/staticBamboo/b1");
             }
         }
 

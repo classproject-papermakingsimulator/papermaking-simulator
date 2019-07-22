@@ -135,6 +135,8 @@ MonoBehaviour:
   body: {fileID: 0}
   inventoryAdd: {fileID: 0}
   projectileSpeed: 500
+  newbamboo: {fileID: 2673075545535018726, guid: 57e172c273adf5a499706b3e036ac041,
+    type: 3}
 --- !u!114 &467999192004249305
 MonoBehaviour:
   m_ObjectHideFlags: 0

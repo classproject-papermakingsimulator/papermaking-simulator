@@ -77,6 +77,8 @@
 
         protected virtual void interact(Transform target)
         {
+            bambooInteract bamboo = null;
+            BambooGrab bamboos = null;
             cartTelController cart = null;
             poolInteract pool = null;
             ashInteract ash = null;
@@ -101,6 +103,10 @@
                 desk = (target != null ? target.GetComponent<pressInteract>() : null);
             if (target.tag.Equals("cut"))
                 knife = (target != null ? target.GetComponent<cutInteract>() : null);
+            if (target.tag.Equals("bamboo"))
+                bamboo = (target != null ? target.GetComponent<bambooInteract>() : null);
+            if (target.tag.Equals("bamboos"))
+                bamboos = (target != null ? target.GetComponent<BambooGrab>() : null);
             if (cart != null)
             {
                 cart.Point();
@@ -132,6 +138,14 @@
             if (knife != null)
             {
                 knife.cut();
+            }
+            if(bamboo != null)
+            {
+                bamboo.pick();
+            }
+            if(bamboos != null)
+            {
+                bamboos.pick();
             }
         }
 

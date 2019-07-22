@@ -14,7 +14,7 @@ public class InventoryAdd : MonoBehaviour
 
     }
 
-    public void minus()
+    public bool minus()
     {
         String tmp;
         tmp = mtext.GetComponent<Text>().text;
@@ -24,6 +24,7 @@ public class InventoryAdd : MonoBehaviour
             n--;
             tmp = n.ToString();
             mtext.GetComponent<Text>().text = tmp;
+            return true;
         }
         else
         {
@@ -34,6 +35,7 @@ public class InventoryAdd : MonoBehaviour
             temp = nd.ToString();
             text.GetComponent<Text>().text = temp;
             print("原料不足");
+            return false;
         }
            
     }

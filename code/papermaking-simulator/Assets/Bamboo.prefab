@@ -679,42 +679,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6706075301078468272
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6706075301680914774}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.20000002, y: 0.1969616, z: 1.0350201}
-  m_Center: {x: 0.2918228, y: 0.2716971, z: -0.54215896}
---- !u!114 &6706075301078468268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6706075301680914774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466fa75d22b08184ba71b277327f6fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubeA: {fileID: 6706075302144575768}
-  cubeB: {fileID: 6706075300384938626}
-  end1: {fileID: 6706075301769636653}
-  end2: {fileID: 6706075301263651770}
-  end3: {fileID: 6706075300110924029}
-  end4: {fileID: 6706075300725392458}
-  end5: {fileID: 6706075300868577409}
-  end6: {fileID: 6706075300698438086}
-  end7: {fileID: 6706075300127915281}
-  end8: {fileID: 6706075300502691471}
-  start: {fileID: 6706075301680627062}
 --- !u!1 &6706075301263651766
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +770,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6706075301078468272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706075301680914774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20000002, y: 0.1969616, z: 1.0350201}
+  m_Center: {x: 0.2918228, y: 0.2716971, z: -0.54215896}
+--- !u!114 &6706075301078468268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706075301680914774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466fa75d22b08184ba71b277327f6fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeA: {fileID: 6706075302144575768}
+  cubeB: {fileID: 6706075300384938626}
+  end1: {fileID: 6706075301769636653}
+  end2: {fileID: 6706075301263651770}
+  end3: {fileID: 6706075300110924029}
+  end4: {fileID: 6706075300725392458}
+  end5: {fileID: 6706075300868577409}
+  end6: {fileID: 6706075300698438086}
+  end7: {fileID: 6706075300127915281}
+  end8: {fileID: 6706075300502691471}
+  start: {fileID: 6706075301680627062}
 --- !u!1 &6706075301769636649
 GameObject:
   m_ObjectHideFlags: 0

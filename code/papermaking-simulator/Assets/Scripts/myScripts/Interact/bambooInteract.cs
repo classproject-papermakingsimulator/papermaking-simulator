@@ -17,6 +17,8 @@ public class bambooInteract : MonoBehaviour
     public Transform end8;
     public Transform start;
     public GameObject bamboo;
+    public GameObject projectile;
+    public Transform projectileSpawnPoint;
     private int num = 10;
     private float r = 0;
     private float d = 0;
@@ -61,14 +63,18 @@ public class bambooInteract : MonoBehaviour
 
     }
 
+    public void pick()
+    {
+        inventory.add();
+        gameObject.SetActive(false);
+    }
+
     private void isDown()
     {
         if(count == 10 || count == 11)
         {
             count = 0;
-            //inventory.??
             down = true;
-            inventory.add();
         }
     }
 

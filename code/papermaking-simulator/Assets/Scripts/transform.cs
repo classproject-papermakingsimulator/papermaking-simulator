@@ -34,17 +34,24 @@ public class transform : MonoBehaviour
             if(thisOne.name == "Cube")
             {
                 second.SetActive(true);
+                thisOne.SetActive(false);
             }
             if (thisOne.name == "Sphere")
             {
                 third.SetActive(true);
+                thisOne.SetActive(false);
             }
-            if (thisOne.name == "Capsule")
-            {
-                inventory.minus();
-                inventory.add();
-            }
-            thisOne.SetActive(false);
+            //if (thisOne.name == "Capsule")
+            //{
+            //    inventory.minus();
+            //    inventory.add();
+            //}
         }
+    }
+
+    public void pick()
+    {
+        inventory.add();
+        Destroy(thisOne);
     }
 }

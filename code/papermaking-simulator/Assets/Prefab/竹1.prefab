@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8802291948141282750}
   - component: {fileID: 8559628418700424795}
   - component: {fileID: 467999192004249305}
+  - component: {fileID: 5145805335945568145}
   m_Layer: 0
   m_Name: "\u7AF91"
   m_TagString: bamboos
@@ -121,7 +122,7 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 467999192004249305}
   secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
+  isUsable: 1
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
@@ -130,10 +131,10 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
-  projectile: {fileID: 2673075545535018726}
+  linkedObject: {fileID: 8559628418700424795}
   body: {fileID: 0}
   inventoryAdd: {fileID: 0}
-  projectileSpeed: 1000
+  projectileSpeed: 500
 --- !u!114 &467999192004249305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +153,19 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!65 &5145805335945568145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673075545535018726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20000002, y: 0.1969616, z: 1.0350201}
+  m_Center: {x: 0.2918228, y: 0.2716971, z: -0.54215896}
 --- !u!1 &4499522992613596000
 GameObject:
   m_ObjectHideFlags: 0

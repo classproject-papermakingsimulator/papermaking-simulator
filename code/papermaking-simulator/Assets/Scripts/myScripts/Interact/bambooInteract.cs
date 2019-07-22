@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bambooInteract : MonoBehaviour
 {
+    public UImanager canva;
     public InventoryAdd inventory;
     public Transform cubeA;
     public Transform cubeB;
@@ -70,13 +71,15 @@ public class bambooInteract : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void getOng()
+    public void getOne()
     {
         if(inventory.minus())
         {
             if (projectile != null)
             {
+      
                 GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
+                canva.InventoryButton();
                 Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
                 if (projectileRigidbody != null)
                 {

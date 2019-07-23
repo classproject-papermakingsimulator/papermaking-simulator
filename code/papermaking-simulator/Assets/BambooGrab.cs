@@ -17,7 +17,8 @@ public class BambooGrab : GrabAndThrow
     void OnChange()
     {
         Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
-        GameObject pooledBamboo = Instantiate(newbamboo, position, gameObject.transform.rotation);
+        GameObject pooledBamboos = Instantiate(newbamboo, position, gameObject.transform.rotation);
+        pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
         Destroy(gameObject);
     }
 }

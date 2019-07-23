@@ -1,24 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
-public class transform : MonoBehaviour
+public class transform : GrabAndThrow
 {
     public GameObject second;
     public GameObject third;
     public GameObject thisOne;
-    public InventoryAdd inventory;
     private int count;
-    // Start is called before the first frame update
-    void onEnable()
+    protected override void OnEnable()
     {
-        count = 0;
-    }
+        linkedObject = (linkedObject == null ? GetComponent<VRTK_InteractableObject>() : linkedObject);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (linkedObject != null)
+        {
+            linkedObject.InteractableObjectUsed += InteractableObjectUsed;
+        }
+        count = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,11 +46,5 @@ public class transform : MonoBehaviour
             //    inventory.add();
             //}
         }
-    }
-
-    public void pick()
-    {
-        inventory.add();
-        Destroy(thisOne);
     }
 }

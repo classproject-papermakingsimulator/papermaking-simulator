@@ -91,8 +91,8 @@
                 cart = (target != null ? target.GetComponent<cartTelController>() : null);
             if (target.tag.Equals("pool"))
                 pool = (target != null ? target.GetComponent<poolInteract>() : null);
-            if (target.tag.Equals("ash"))
-                ashed = (target != null ? target.GetComponent<ashInteract>() : null);
+            if (target.tag.Equals("ashed"))
+                ashed = (target != null ? target.GetComponent<pooledBamboo>() : null);
             if (target.tag.Equals("boil"))
                 boil = (target != null ? target.GetComponent<boilInteract>() : null);
             if (target.tag.Equals("pail"))
@@ -115,9 +115,9 @@
             {
                 pool.steep();
             }
-            if (ash != null)
+            if (ashed != null)
             {
-                ash.dry();
+                ashed.pick("Bamboo/staticBamboo2");
             }
             if(boil != null)
             {
@@ -145,7 +145,7 @@
             }
             if(bamboos != null)
             {
-                bamboos.pick("Bamboo/staticBamboo/b1");
+                bamboos.pick("Bamboo/staticBamboo");
             }
         }
 

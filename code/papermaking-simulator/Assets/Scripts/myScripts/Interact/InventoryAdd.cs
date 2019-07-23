@@ -49,4 +49,24 @@ public class InventoryAdd : MonoBehaviour
         tmp = n.ToString();
         text.GetComponent<Text>().text = tmp;
     }
+
+
+    public bool selfMinus()
+    {
+        String tmp;
+        tmp = text.GetComponent<Text>().text;
+        int n = int.Parse(tmp);
+        if (n > 0)
+        {
+            n--;
+            tmp = n.ToString();
+            text.GetComponent<Text>().text = tmp;
+            return true;
+        }
+        else
+        {
+            print("原料不足");
+            return false;
+        }
+    }
 }

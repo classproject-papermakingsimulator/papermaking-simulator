@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bambooInteract : MonoBehaviour
 {
-    public UImanager canva;
+    //public UImanager canva;
     public InventoryAdd inventory;
     public Transform cubeA;
     public Transform cubeB;
@@ -18,15 +18,15 @@ public class bambooInteract : MonoBehaviour
     public Transform end8;
     public Transform start;
     public GameObject bamboo;
-    public GameObject projectile;
-    public Transform body;
+    //public GameObject projectile;
+    //public Transform body;
     private int num = 10;
     private float r = 0;
     private float d = 0;
     private int direction = 0;
     private int count;
     private bool down;
-    public float projectileSpeed = 1000f;
+    //public float projectileSpeed = 1000f;
 
     private void Awake()
     {
@@ -71,27 +71,27 @@ public class bambooInteract : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void getOne()
-    {
-        if(inventory.minus())
-        {
-            if (projectile != null)
-            {
+    //public void getOne()
+    //{
+    //    if(inventory.minus())
+    //    {
+    //        if (projectile != null)
+    //        {
       
-                GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
-                canva.InventoryButton();
-                Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-                if (projectileRigidbody != null)
-                {
-                    projectileRigidbody.AddForce(projectile.transform.forward * projectileSpeed);
-                }
-            }
-        }
-        else
-        {
-            inventory.add();
-        }
-    }
+    //            GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
+    //            canva.InventoryButton();
+    //            Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
+    //            if (projectileRigidbody != null)
+    //            {
+    //                projectileRigidbody.AddForce(projectile.transform.forward * projectileSpeed);
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        inventory.add();
+    //    }
+    //}
 
     private void isDown()
     {

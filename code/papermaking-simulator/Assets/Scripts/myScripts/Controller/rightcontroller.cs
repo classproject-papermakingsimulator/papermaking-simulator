@@ -83,7 +83,8 @@
             poolInteract pool = null;
             pooledBamboo ashed = null;
             boilInteract boil = null;
-            transform pail = null;
+            trans pail = null;
+            trans mash = null;
             tubInteract tub = null;
             pressInteract desk = null;
             cutInteract knife = null;
@@ -96,7 +97,9 @@
             if (target.tag.Equals("boil"))
                 boil = (target != null ? target.GetComponent<boilInteract>() : null);
             if (target.tag.Equals("pail"))
-                pail = (target != null ? target.GetComponent<transform>() : null);
+                pail = (target != null ? target.GetComponent<trans>() : null);
+            if (target.tag.Equals("mash"))
+                mash = (target != null ? target.GetComponent<trans>() : null);
             if (target.tag.Equals("tub"))
                 tub = (target != null ? target.GetComponent<tubInteract>() : null);
             if (target.tag.Equals("desk"))
@@ -125,7 +128,11 @@
             }
             if(pail != null)
             {
-                pail.pick();
+                pail.pick("mash/Capsule");
+            }
+            if (mash != null)
+            {
+                mash.pick("mash/Cube");
             }
             if (tub != null)
             {

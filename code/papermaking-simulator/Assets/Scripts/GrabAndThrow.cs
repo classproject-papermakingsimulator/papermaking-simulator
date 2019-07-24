@@ -40,13 +40,29 @@ public class GrabAndThrow : VRTK_InteractableObject
             if (name.Equals("Bamboo/staticBamboo"))
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<BambooGrab>().inventoryAdd;
+                inventoryAdd.add();
+                Destroy(gameObject);
             }
             if (name.Equals("Bamboo/staticBamboo2"))
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<pooledBamboo>().inventoryAdd;
+                inventoryAdd.add();
+                Destroy(gameObject);
             }
-            inventoryAdd.add();
-            Destroy(gameObject);
+            if (name.Equals("mash/Cube"))
+            {
+                inventoryAdd = GameObject.Find(name).GetComponent<trans>().inventoryAdd;
+                inventoryAdd.add();
+                gameObject.GetComponentInParent<destroyMash>().DestroyIt();
+            }
+            if (name.Equals("mash/Capsule"))
+            {
+                inventoryAdd = GameObject.Find(name).GetComponent<trans>().inventoryAdd;
+                inventoryAdd.add();
+                gameObject.GetComponentInParent<destroyMash>().DestroyIt();
+            }
+
+
         }
        
     }
@@ -74,9 +90,10 @@ public class GrabAndThrow : VRTK_InteractableObject
         if (inventoryAdd.selfMinus())
         {
             if (projectile != null)
-            {
+            {       
                 canva = GameObject.Find("Canvas").GetComponent<UImanager>();
                 GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
+                projectileClone.SetActive(true);
                 canva.InventoryButton();
                 Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
                 if (projectileRigidbody != null)

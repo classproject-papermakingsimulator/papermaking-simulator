@@ -17,6 +17,7 @@ TagManager:
   - bamboos
   - ashed
   - mash
+  - plane
   layers:
   - Default
   - TransparentFX

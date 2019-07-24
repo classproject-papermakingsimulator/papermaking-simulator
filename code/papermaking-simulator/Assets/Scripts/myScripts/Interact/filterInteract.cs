@@ -3,55 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class filterInteract : VRTK_InteractableObject
+public class filterInteract : MonoBehaviour
 {
-    private float impactMagnifier = 120f;
-    private float collisionForce = 0f;
-    private float maxCollisionForce = 4000f;
-    private VRTK_ControllerReference controllerReference;
-    public GameObject leftcontroller;
+    public GameObject l1;
+    public GameObject l2;
+    public GameObject l3;
+    public GameObject l4;
+    private bool isWater = false;
+    private bool isPaper = false;
 
-    public float CollisionForce()
+    private void OnTriggerEnter(Collider other)
     {
-        return collisionForce;
-    }
-
-    public override void Grabbed(VRTK_InteractGrab grabbingObject)
-    {
-        base.Grabbed(grabbingObject);
-        controllerReference = VRTK_ControllerReference.GetControllerReference(grabbingObject.controllerEvents.gameObject);
-        leftcontroller.GetComponent<VRTK_InteractUse>().enabled = true;
-        leftcontroller.GetComponent<VRTK_InteractGrab>().enabled = true;
-        leftcontroller.GetComponent<VRTK_InteractTouch>().enabled = true;
-    }
-
-    public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
-    {
-        base.Ungrabbed(previousGrabbingObject);
-        controllerReference = null;
-        leftcontroller.GetComponent<VRTK_InteractUse>().enabled = false;
-        leftcontroller.GetComponent<VRTK_InteractGrab>().enabled = false;
-        leftcontroller.GetComponent<VRTK_InteractTouch>().enabled = false;
-    }
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        controllerReference = null;
-        interactableRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (VRTK_ControllerReference.IsValid(controllerReference) && IsGrabbed())
+        if (other.tag == "tub")
         {
-            collisionForce = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude * impactMagnifier;
-            var hapticStrength = collisionForce / maxCollisionForce;
-            VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, hapticStrength, 0.5f, 0.01f);
+            if (!isWater)
+            {
+                isWater = true;
+            }
         }
-        else
+        if(other.tag == "plane" && isPaper)
         {
-            collisionForce = collision.relativeVelocity.magnitude * impactMagnifier;
+
         }
+    }
+
+    private void Update()
+    {
+        if (isWater)
+        {
+            GameObject target = minPoint();
+            if(!target.GetComponentInChildren<ParticleSystem>().isPlaying)
+                target.GetComponentInChildren<ParticleSystem>().Play();
+        }
+    }
+
+    private GameObject minPoint()
+    {
+        Transform point1 = l1.transform.Find("point").GetComponent<Transform>();
+        Transform point2 = l2.transform.Find("point").GetComponent<Transform>();
+        Transform point3 = l3.transform.Find("point").GetComponent<Transform>();
+        Transform point4 = l4.transform.Find("point").GetComponent<Transform>();
+        if (point1.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
+        {
+            l2.GetComponentInChildren<ParticleSystem>().Stop();
+            l3.GetComponentInChildren<ParticleSystem>().Stop();
+            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            return l1;
+        }
+        if(point2.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
+        {
+            l1.GetComponentInChildren<ParticleSystem>().Stop();
+            l3.GetComponentInChildren<ParticleSystem>().Stop();
+            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            return l2;
+        }
+        if (point3.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
+        {
+            l1.GetComponentInChildren<ParticleSystem>().Stop();
+            l2.GetComponentInChildren<ParticleSystem>().Stop();
+            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            return l3;
+        }
+        l1.GetComponentInChildren<ParticleSystem>().Stop();
+        l2.GetComponentInChildren<ParticleSystem>().Stop();
+        l3.GetComponentInChildren<ParticleSystem>().Stop();
+        return l4;
     }
 }

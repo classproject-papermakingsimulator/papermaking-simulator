@@ -9,6 +9,7 @@ public class trans : GrabAndThrow
     public GameObject third;
     public GameObject thisOne;
     private int count;
+    private bool hammerable;
     protected override void OnEnable()
     {
         linkedObject = (linkedObject == null ? GetComponent<VRTK_InteractableObject>() : linkedObject);
@@ -18,11 +19,19 @@ public class trans : GrabAndThrow
             linkedObject.InteractableObjectUsed += InteractableObjectUsed;
         }
         count = 0;
+        hammerable = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.name == "sledgeHammer")
+        if (collision.collider.name == "Pail" && !hammerable)
+        {
+            Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+            gameObject.transform.position = tmp;
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            hammerable = true;
+        }
+        if (collision.collider.name == "sledgeHammer" && hammerable)
         {
             count++;
             changeObject();
@@ -34,6 +43,14 @@ public class trans : GrabAndThrow
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "tub" && thisOne.name == "Capsule")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void changeObject()
     {
         if(count >= 10)
@@ -41,22 +58,20 @@ public class trans : GrabAndThrow
             
             if (thisOne.name == "Cube")
             {
+                Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                second.transform.position = tmp;
+                second.transform.rotation = new Quaternion(0, 0, 0, 0);
                 second.SetActive(true);
                 thisOne.SetActive(false);
             }
             if (thisOne.name == "Sphere")
             {
-                //Vector3 temp = new Vector3(thisOne.transform.localPosition.x, thisOne.transform.localPosition.y, thisOne.transform.localPosition.z);
+                Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                third.transform.position = tmp;
+                third.transform.rotation = new Quaternion(0, 0, 0, 0);
                 third.SetActive(true);
-                //temp.y += 1;
-                //third.transform.localPosition = temp;
                 thisOne.SetActive(false);
             }
-            //if (thisOne.name == "Capsule")
-            //{
-            //    inventory.minus();
-            //    inventory.add();
-            //}
         }
     }
 }

@@ -17,11 +17,11 @@ public class pooledBamboo : GrabAndThrow
 
     private void toBoil()
     {
-        Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
+        Vector3 position = new Vector3((float)268.6058, 6, (float)345.2);
         GameObject pooledBamboos = Instantiate(mash, position, gameObject.transform.rotation);
-        pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
+        pooledBamboos.GetComponentInChildren<Rigidbody>().isKinematic = false;
         //intoBoil = GameObject.Find("furnace/Barrel").GetComponent<boilInteract>();
         //intoBoil.boil();
-        Destroy(gameObject);
+        Destroy(gameObject,2f);
     }
 }

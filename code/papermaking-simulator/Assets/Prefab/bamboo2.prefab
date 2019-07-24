@@ -163,10 +163,12 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
   linkedObject: {fileID: 7781738139963812984}
-  projectile: {fileID: 0}
+  projectile: {fileID: 7056756951488209877, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+    type: 3}
   body: {fileID: 0}
   inventoryAdd: {fileID: 0}
   projectileSpeed: 500
+  mash: {fileID: 7056756951488209877, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
 --- !u!1 &4499522992613596000
 GameObject:
   m_ObjectHideFlags: 0

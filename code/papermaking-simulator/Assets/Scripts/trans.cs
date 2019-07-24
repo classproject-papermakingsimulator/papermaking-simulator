@@ -46,7 +46,10 @@ public class trans : GrabAndThrow
             }
             if (thisOne.name == "Sphere")
             {
+                //Vector3 temp = new Vector3(thisOne.transform.localPosition.x, thisOne.transform.localPosition.y, thisOne.transform.localPosition.z);
                 third.SetActive(true);
+                //temp.y += 1;
+                //third.transform.localPosition = temp;
                 thisOne.SetActive(false);
             }
             //if (thisOne.name == "Capsule")

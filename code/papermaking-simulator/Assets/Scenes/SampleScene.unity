@@ -29584,6 +29584,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6001876003663119940, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+        type: 3}
+      propertyPath: inventoryAdd
+      value: 
+      objectReference: {fileID: 1278575743}
+    - target: {fileID: 6001876003663119940, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+        type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 920877715}
+    - target: {fileID: 6001876003663119940, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7056756951488209877, guid: 8e4004f884848394781b2527232dfe17,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
 --- !u!114 &1713191763 stripped

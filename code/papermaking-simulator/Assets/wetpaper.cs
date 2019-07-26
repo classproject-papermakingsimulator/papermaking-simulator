@@ -71,9 +71,9 @@ public class wetpaper : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(wets > 0 && collision.collider.tag == "plank")
+        if(wets > 0 && other.tag == "plank")
         {
             wets--;
         }

@@ -175,10 +175,10 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
   linkedObject: {fileID: 3568227662121065937}
-  projectile: {fileID: 0}
+  projectile: {fileID: 6731870230599610535}
   body: {fileID: 0}
   inventoryAdd: {fileID: 0}
-  projectileSpeed: 1000
+  projectileSpeed: 700
   pickable: 1
 --- !u!114 &9146666665220507058
 MonoBehaviour:

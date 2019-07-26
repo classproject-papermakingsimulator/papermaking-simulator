@@ -26,14 +26,18 @@ public class filterInteract : MonoBehaviour
         {
 
         }
+        if (other.tag == "wets")
+        {
+            wetpapers.GetComponent<wetpaper>().add();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "wets")
-        {
-            wetpapers.GetComponent<wetpaper>().add();
-        }
+        //if(collision.collider.tag == "wets")
+        //{
+        //    wetpapers.GetComponent<wetpaper>().add();
+        //}
     }
 
     private void Update()
@@ -41,8 +45,8 @@ public class filterInteract : MonoBehaviour
         if (isWater)
         {
             GameObject target = minPoint();
-            if(!target.GetComponentInChildren<ParticleSystem>().isPlaying)
-                target.GetComponentInChildren<ParticleSystem>().Play();
+            if(!target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().isPlaying)
+                target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -54,28 +58,28 @@ public class filterInteract : MonoBehaviour
         Transform point4 = l4.transform.Find("point").GetComponent<Transform>();
         if (point1.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
-            l2.GetComponentInChildren<ParticleSystem>().Stop();
-            l3.GetComponentInChildren<ParticleSystem>().Stop();
-            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            l2.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l3.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l4.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
             return l1;
         }
         if(point2.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
-            l1.GetComponentInChildren<ParticleSystem>().Stop();
-            l3.GetComponentInChildren<ParticleSystem>().Stop();
-            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            l1.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l3.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l4.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
             return l2;
         }
         if (point3.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
-            l1.GetComponentInChildren<ParticleSystem>().Stop();
-            l2.GetComponentInChildren<ParticleSystem>().Stop();
-            l4.GetComponentInChildren<ParticleSystem>().Stop();
+            l1.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l2.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+            l4.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
             return l3;
         }
-        l1.GetComponentInChildren<ParticleSystem>().Stop();
-        l2.GetComponentInChildren<ParticleSystem>().Stop();
-        l3.GetComponentInChildren<ParticleSystem>().Stop();
+        l1.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+        l2.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
+        l3.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
         return l4;
     }
 }

@@ -61,6 +61,12 @@ public class GrabAndThrow : VRTK_InteractableObject
                 inventoryAdd.add();
                 gameObject.GetComponentInParent<destroyMash>().DestroyIt();
             }
+            if (name.Equals("wetpaper"))
+            {
+                inventoryAdd = GameObject.Find(name).GetComponent<wetpaperinteract>().inventoryAdd;
+                inventoryAdd.add();
+                Destroy(gameObject);
+            }
 
 
         }

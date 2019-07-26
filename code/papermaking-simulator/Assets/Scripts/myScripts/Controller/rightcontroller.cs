@@ -85,25 +85,25 @@
             boilInteract boil = null;
             trans pail = null;
             trans mash = null;
-            tubInteract tub = null;
-            pressInteract desk = null;
+            wetpaperinteract wetp = null;
+            wetpaper wetsp = null;
             cutInteract knife = null;
-            if (target.tag.Equals("cart"))
+            if (target.tag.Equals("cart"))//1
                 cart = (target != null ? target.GetComponent<cartTelController>() : null);
-            if (target.tag.Equals("pool"))
+            if (target.tag.Equals("pool"))//1
                 pool = (target != null ? target.GetComponent<poolInteract>() : null);
-            if (target.tag.Equals("ashed"))
+            if (target.tag.Equals("ashed"))//1
                 ashed = (target != null ? target.GetComponent<pooledBamboo>() : null);
             if (target.tag.Equals("boil"))
                 boil = (target != null ? target.GetComponent<boilInteract>() : null);
-            if (target.tag.Equals("pail"))
+            if (target.tag.Equals("pail"))//1
                 pail = (target != null ? target.GetComponent<trans>() : null);
-            if (target.tag.Equals("mash"))
+            if (target.tag.Equals("mash"))//1
                 mash = (target != null ? target.GetComponent<trans>() : null);
-            if (target.tag.Equals("tub"))
-                tub = (target != null ? target.GetComponent<tubInteract>() : null);
-            if (target.tag.Equals("desk"))
-                desk = (target != null ? target.GetComponent<pressInteract>() : null);
+            if (target.tag.Equals("wet"))
+                wetp = (target != null ? target.GetComponent<wetpaperinteract>() : null);
+            if (target.tag.Equals("wets"))//1
+                wetsp = (target != null ? target.GetComponent<wetpaper>() : null);
             if (target.tag.Equals("cut"))
                 knife = (target != null ? target.GetComponent<cutInteract>() : null);
             if (target.tag.Equals("bamboo"))
@@ -134,13 +134,14 @@
             {
                 mash.pick("mash/Cube");
             }
-            if (tub != null)
+            if (wetp != null)
             {
-                tub.filter();
+                wetp.pick("wetpaper");
             }
-            if(desk != null)
+            if(wetsp != null)
             {
-                desk.press();
+                print(1);
+                wetsp.paperpick();
             }
             if (knife != null)
             {

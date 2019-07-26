@@ -18,6 +18,10 @@ TagManager:
   - ashed
   - mash
   - plane
+  - dry
+  - wet
+  - wets
+  - plank
   layers:
   - Default
   - TransparentFX

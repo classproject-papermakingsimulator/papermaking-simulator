@@ -13,7 +13,7 @@ public class GrabAndThrow : VRTK_InteractableObject
     public Transform body;
     public InventoryAdd inventoryAdd;
     public float projectileSpeed = 1000f;
-    private bool pickable = true;
+    public bool pickable = true;
 
     protected virtual void InteractableObjectUsed(object sender, InteractableObjectEventArgs e)
     {

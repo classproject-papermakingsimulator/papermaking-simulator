@@ -9,6 +9,7 @@ public class filterInteract : MonoBehaviour
     public GameObject l2;
     public GameObject l3;
     public GameObject l4;
+    public GameObject wetpapers;
     private bool isWater = false;
     private bool isPaper = false;
 
@@ -24,6 +25,14 @@ public class filterInteract : MonoBehaviour
         if(other.tag == "plane" && isPaper)
         {
 
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "wets")
+        {
+            wetpapers.GetComponent<wetpaper>().add();
         }
     }
 

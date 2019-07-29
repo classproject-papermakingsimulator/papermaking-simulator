@@ -30505,7 +30505,7 @@ PrefabInstance:
     - target: {fileID: 3636869613452759683, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24891019
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 3636869613452759683, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
         type: 3}
@@ -30664,7 +30664,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7056756951488209877, guid: 8e4004f884848394781b2527232dfe17,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 5820459100340219154, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820459100340219154, guid: 0e5e6fcd53679174cbc9c1af5cba1242,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5820459100340219154, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
+    - {fileID: 7109646500816141532, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
 --- !u!114 &1713191763 stripped
 MonoBehaviour:

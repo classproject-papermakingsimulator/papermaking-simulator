@@ -14,7 +14,7 @@ public class wetpaper : MonoBehaviour
     public GameObject paper6;
     public InventoryAdd inventory;
     private bool pickable;
-    private int wets = 100;
+    private int wets = 20;
 
     public void add()
     {

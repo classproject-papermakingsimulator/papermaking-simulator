@@ -10,6 +10,7 @@ public class trans : GrabAndThrow
     public GameObject thisOne;
     private int count;
     private bool hammerable;
+
     protected override void OnEnable()
     {
         linkedObject = (linkedObject == null ? GetComponent<VRTK_InteractableObject>() : linkedObject);
@@ -20,6 +21,7 @@ public class trans : GrabAndThrow
         }
         count = 0;
         hammerable = false;
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,6 +31,7 @@ public class trans : GrabAndThrow
             Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
             gameObject.transform.position = tmp;
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             hammerable = true;
         }
         if (collision.collider.name == "sledgeHammer" && hammerable)

@@ -43,6 +43,7 @@ public class cutBamboo : VRTK_InteractableObject
         {
             if (collision.collider.tag == "bamboo")
             {
+                print(collision.collider.name);
                 GameObject.Find(collision.collider.name).GetComponent<bambooInteract>().cutdown(vm);
                 ContactPoint contactPoint = collision.contacts[0];
                 Vector3 newDir = Vector3.zero;

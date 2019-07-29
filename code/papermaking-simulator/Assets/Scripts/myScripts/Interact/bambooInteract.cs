@@ -95,7 +95,7 @@ public class bambooInteract : MonoBehaviour
 
     private void isDown()
     {
-        if(count == 10 || count == 11)
+        if(count == 1 || count == 2)
         {
             count = 0;
             down = true;

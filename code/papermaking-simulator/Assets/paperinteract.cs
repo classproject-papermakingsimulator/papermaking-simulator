@@ -60,7 +60,10 @@ public class paperinteract : MonoBehaviour
     public void paperpick()
     {
         for (int i = 0; i < count; ++i)
+        {
             inventory.add();
+            print(i);
+        }   
         paper.SetActive(false);
         paper1.SetActive(false);
         paper2.SetActive(false);

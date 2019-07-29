@@ -7,6 +7,5 @@ public class boilInteract : MonoBehaviour
 
     public void boil()
     {
-        print(1);
     }
 }

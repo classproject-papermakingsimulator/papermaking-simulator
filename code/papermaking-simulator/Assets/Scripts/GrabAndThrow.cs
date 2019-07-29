@@ -67,6 +67,12 @@ public class GrabAndThrow : VRTK_InteractableObject
                 inventoryAdd.add();
                 Destroy(gameObject);
             }
+            if (name.Equals("drypaper"))
+            {
+                inventoryAdd = GameObject.Find(name).GetComponent<drypaper>().inventoryAdd;
+                inventoryAdd.add();
+                Destroy(gameObject);
+            }
 
 
         }

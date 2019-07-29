@@ -89,6 +89,7 @@
             wetpaper wetsp = null;
             cutInteract knife = null;
             paperinteract dry = null;
+            drypaper drypaper = null;
             if (target.tag.Equals("cart"))//1
                 cart = (target != null ? target.GetComponent<cartTelController>() : null);
             if (target.tag.Equals("pool"))//1
@@ -111,8 +112,10 @@
                 bamboo = (target != null ? target.GetComponent<bambooInteract>() : null);
             if (target.tag.Equals("bamboos"))
                 bamboos = (target != null ? target.GetComponent<BambooGrab>() : null);
-            if (target.tag.Equals("drys"))
+            if (target.tag.Equals("drys"))//1
                 dry = (target != null ? target.GetComponent<paperinteract>() : null);
+            if (target.tag.Equals("drypaper"))//1
+                drypaper = (target != null ? target.GetComponent<drypaper>() : null);
             if (cart != null)
             {
                 cart.Point();
@@ -158,9 +161,12 @@
                 bamboos.pick("Bamboo/staticBamboo");
             }
             if(dry != null)
-            {
-                print("1");
+            {  
                 dry.paperpick();
+            }
+            if (drypaper != null)
+            {
+                drypaper.pick("drypaper");
             }
         }
 

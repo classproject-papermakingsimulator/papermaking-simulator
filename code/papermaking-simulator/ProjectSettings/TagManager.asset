@@ -23,6 +23,7 @@ TagManager:
   - wets
   - plank
   - drys
+  - drypaper
   layers:
   - Default
   - TransparentFX

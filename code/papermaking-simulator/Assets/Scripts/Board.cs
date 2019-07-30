@@ -61,21 +61,25 @@ public class Board : MonoBehaviour
         if (isDrawing)
         {
             //改变画笔所在的块的像素值
-            currentTexture.SetPixels32(texPosX, texPosY, painterTipsWidth, painterTipsHeight, painterColor);
-            //如果快速移动画笔的话，会出现断续的现象，所以要插值
-            if (lastPaintX != 0 && lastPaintY != 0)
+            if (texPosX > 0 && texPosY > 0 && texPosX < (float)textureWidth - (float)(painterTipsWidth) && texPosY < (float)textureHeight - (float)(painterTipsHeight))
             {
-                int lerpCount = (int)(1 / lerp);
-                for (int i = 0; i <= lerpCount; i++)
+                currentTexture.SetPixels32(texPosX, texPosY, painterTipsWidth, painterTipsHeight, painterColor);
+                //如果快速移动画笔的话，会出现断续的现象，所以要插值
+                if (lastPaintX != 0 && lastPaintY != 0)
                 {
-                    int x = (int)Mathf.Lerp((float)lastPaintX, (float)texPosX, lerp);
-                    int y = (int)Mathf.Lerp((float)lastPaintY, (float)texPosY, lerp);
-                    currentTexture.SetPixels32(x, y, painterTipsWidth, painterTipsHeight, painterColor);
+                    int lerpCount = (int)(1 / lerp);
+                    for (int i = 0; i <= lerpCount; i++)
+                    {
+                        int x = (int)Mathf.Lerp((float)lastPaintX, (float)texPosX, lerp);
+                        int y = (int)Mathf.Lerp((float)lastPaintY, (float)texPosY, lerp);
+                        currentTexture.SetPixels32(x, y, painterTipsWidth, painterTipsHeight, painterColor);
+                    }
                 }
+                currentTexture.Apply();
+                lastPaintX = texPosX;
+                lastPaintY = texPosY;
             }
-            currentTexture.Apply();
-            lastPaintX = texPosX;
-            lastPaintY = texPosY;
+            
         }
         else
         {

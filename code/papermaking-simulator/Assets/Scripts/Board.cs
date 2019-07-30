@@ -21,8 +21,8 @@ public class Board : MonoBehaviour
     private int lastPaintX;
     private int lastPaintY;
     //画笔所代表的色块的大小
-    private int painterTipsWidth = 30;
-    private int painterTipsHeight = 15;
+    private int painterTipsWidth = 8;
+    private int painterTipsHeight = 8;
     //当前画板的背景图片的尺寸
     private int textureWidth;
     private int textureHeight;

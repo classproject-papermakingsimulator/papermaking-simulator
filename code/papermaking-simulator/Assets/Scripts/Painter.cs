@@ -37,8 +37,13 @@ public class Painter : MonoBehaviour
         Ray r = new Ray(rayOrigin.position, rayOrigin.forward);
         if (Physics.Raycast(r, out hitInfo, 0.1f))
         {
+
             if (hitInfo.collider.tag == "Board")
             {
+                if (!board)
+                {
+                    board = FindObjectOfType<Board>();
+                }
                 //设置画笔所在位置对应画板图片的UV坐标 
                 board.SetPainterPositon(hitInfo.textureCoord.x, hitInfo.textureCoord.y);
                 //当前笔的颜色

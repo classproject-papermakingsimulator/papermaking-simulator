@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -33,6 +34,8 @@ public class Board : MonoBehaviour
     private Color32[] currentColor;
     private Color32[] originColor;
 
+    private bool isDone;
+
 
     private void Start()
     {
@@ -51,6 +54,8 @@ public class Board : MonoBehaviour
 
         //初始化画笔的颜色
         painterColor = Enumerable.Repeat<Color32>(new Color32(255, 0, 0, 255), painterTipsWidth * painterTipsHeight).ToArray<Color32>();
+
+        isDone = false;
     }
 
     private void LateUpdate()
@@ -60,26 +65,23 @@ public class Board : MonoBehaviour
         int texPosY = (int)(paintPos.y * (float)textureHeight - (float)(painterTipsHeight / 2));
         if (isDrawing)
         {
+            if(texPosX > 0 && texPosY > 0 && texPosX < (float)textureWidth - (float)painterTipsWidth && texPosY < (float)textureHeight - (float)painterTipsHeight)
             //改变画笔所在的块的像素值
-            if (texPosX > 0 && texPosY > 0 && texPosX < (float)textureWidth - (float)(painterTipsWidth) && texPosY < (float)textureHeight - (float)(painterTipsHeight))
+            currentTexture.SetPixels32(texPosX, texPosY, painterTipsWidth, painterTipsHeight, painterColor);
+            //如果快速移动画笔的话，会出现断续的现象，所以要插值
+            if (lastPaintX != 0 && lastPaintY != 0)
             {
-                currentTexture.SetPixels32(texPosX, texPosY, painterTipsWidth, painterTipsHeight, painterColor);
-                //如果快速移动画笔的话，会出现断续的现象，所以要插值
-                if (lastPaintX != 0 && lastPaintY != 0)
+                int lerpCount = (int)(1 / lerp);
+                for (int i = 0; i <= lerpCount; i++)
                 {
-                    int lerpCount = (int)(1 / lerp);
-                    for (int i = 0; i <= lerpCount; i++)
-                    {
-                        int x = (int)Mathf.Lerp((float)lastPaintX, (float)texPosX, lerp);
-                        int y = (int)Mathf.Lerp((float)lastPaintY, (float)texPosY, lerp);
-                        currentTexture.SetPixels32(x, y, painterTipsWidth, painterTipsHeight, painterColor);
-                    }
+                    int x = (int)Mathf.Lerp((float)lastPaintX, (float)texPosX, lerp);
+                    int y = (int)Mathf.Lerp((float)lastPaintY, (float)texPosY, lerp);
+                    currentTexture.SetPixels32(x, y, painterTipsWidth, painterTipsHeight, painterColor);
                 }
-                currentTexture.Apply();
-                lastPaintX = texPosX;
-                lastPaintY = texPosY;
             }
-            
+            currentTexture.Apply();
+            lastPaintX = texPosX;
+            lastPaintY = texPosY;
         }
         else
         {
@@ -126,6 +128,28 @@ public class Board : MonoBehaviour
                 painterColor[i] = color;
             }
         }
+    }
+
+    public void save()
+    {
+        if(isDone)
+        {
+            byte[] dataBytes = currentTexture.EncodeToPNG();
+            string strSaveFile = Application.dataPath + "/Texture/rt_" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".png";
+            FileStream fs = File.Open(strSaveFile, FileMode.OpenOrCreate);
+            //fs.Write(dataBytes, 0, dataBytes.Length);
+            BinaryWriter writer = new BinaryWriter(fs);
+            writer.Write(dataBytes);
+            fs.Flush();
+            fs.Close();
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void confirm()
+    {
+        print("按钮触发");
+        isDone = true;
     }
 
 

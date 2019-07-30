@@ -90,6 +90,7 @@
             cutInteract knife = null;
             paperinteract dry = null;
             drypaper drypaper = null;
+            Board board = null;
             if (target.tag.Equals("cart"))//1
                 cart = (target != null ? target.GetComponent<cartTelController>() : null);
             if (target.tag.Equals("pool"))//1
@@ -116,6 +117,8 @@
                 dry = (target != null ? target.GetComponent<paperinteract>() : null);
             if (target.tag.Equals("drypaper"))//1
                 drypaper = (target != null ? target.GetComponent<drypaper>() : null);
+            if (target.tag.Equals("Board"))//1
+                board = (target != null ? target.GetComponent<Board>() : null);
             if (cart != null)
             {
                 cart.Point();
@@ -167,6 +170,10 @@
             if (drypaper != null)
             {
                 drypaper.pick("drypaper");
+            }
+            if(board != null)
+            {
+                board.save();
             }
         }
 

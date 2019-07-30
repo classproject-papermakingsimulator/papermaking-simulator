@@ -9,9 +9,13 @@ public class drypaper : GrabAndThrow
     {
         if(collision.collider.tag == "desk")
         {
-            GameObject.Find("drypaper").GetComponent<drypaper>().writepaper.SetActive(true);
-            gameObject.transform.localScale = new Vector3(0, 0, 0);
-            Destroy(gameObject, 2f);
+            GameObject board = GameObject.Find("drypaper").GetComponent<drypaper>().writepaper;
+            if (!board.activeSelf)
+            {
+                board.SetActive(true);
+                gameObject.transform.localScale = new Vector3(0, 0, 0);
+                Destroy(gameObject, 2f);
+            }
         }
     }
 }

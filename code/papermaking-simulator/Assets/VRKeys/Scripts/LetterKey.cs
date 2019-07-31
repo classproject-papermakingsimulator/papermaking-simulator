@@ -31,9 +31,11 @@ namespace VRKeys {
         {
             if (gameObject.GetComponent<Button>() == null)
             {
-                gameObject.AddComponent<Button>();
-                gameObject.GetComponent<Button>().onClick.AddListener(click);
+                gameObject.AddComponent<Button>(); 
             }
+            print(1);
+            gameObject.GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<LetterKey>().click());
+            print(2);
         }
 
         public void click()

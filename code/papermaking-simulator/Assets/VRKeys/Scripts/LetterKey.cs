@@ -11,6 +11,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 namespace VRKeys {
 
@@ -26,7 +27,23 @@ namespace VRKeys {
 
 		private bool _shifted = false;
 
-		public bool shifted {
+        private void Start()
+        {
+            if (gameObject.GetComponent<Button>() == null)
+            {
+                gameObject.AddComponent<Button>();
+                gameObject.GetComponent<Button>().onClick.AddListener(click);
+            }
+        }
+
+        public void click()
+        {
+            keyboard.AddCharacter(GetCharacter());
+
+            ActivateFor(0.3f);
+        }
+
+        public bool shifted {
 			get { return _shifted; }
 			set {
 				_shifted = value;

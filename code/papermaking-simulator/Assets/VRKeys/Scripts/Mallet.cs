@@ -9,10 +9,8 @@
  */
 
 using UnityEngine;
-using UnityEngine.VR;
-using System.Collections;
-using Valve.VR;
 using UnityEngine.XR;
+using System.Collections;
 
 namespace VRKeys {
 
@@ -48,13 +46,7 @@ namespace VRKeys {
 
 		private void Awake () {
 			audioSource = GetComponent<AudioSource> ();
-
-			switch (XRSettings.loadedDeviceName) {
-
-				case "OpenVR":
-					controller = gameObject.AddComponent<OpenVRController> ();
-					break;
-			}
+			controller = GetComponent<Controller> ();
 		}
 
 		private void FixedUpdate () {
@@ -70,6 +62,7 @@ namespace VRKeys {
 		/// </summary>
 		/// <param name="key">Key.</param>
 		public void HandleTriggerEnter (Key key) {
+			audioSource.Stop ();
 			audioSource.PlayOneShot (clipToPlay);
 
 			if (transform.parent.transform.parent != null) {

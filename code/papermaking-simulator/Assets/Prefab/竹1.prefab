@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8559628418700424795}
   - component: {fileID: 467999192004249305}
   - component: {fileID: 5145805335945568145}
+  - component: {fileID: 9207234617306944486}
+  - component: {fileID: 706814443873518709}
   m_Layer: 0
   m_Name: "\u7AF91"
   m_TagString: bamboos
@@ -136,6 +138,7 @@ MonoBehaviour:
   body: {fileID: 0}
   inventoryAdd: {fileID: 0}
   projectileSpeed: 500
+  pickable: 1
   newbamboo: {fileID: 2673075545535018726, guid: 57e172c273adf5a499706b3e036ac041,
     type: 3}
 --- !u!114 &467999192004249305
@@ -169,6 +172,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20000002, y: 0.1969616, z: 1.0350201}
   m_Center: {x: 0.2918228, y: 0.2716971, z: -0.54215896}
+--- !u!114 &9207234617306944486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673075545535018726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 706814443873518709}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &706814443873518709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673075545535018726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &4499522992613596000
 GameObject:
   m_ObjectHideFlags: 0

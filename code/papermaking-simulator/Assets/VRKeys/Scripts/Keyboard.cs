@@ -14,7 +14,6 @@ using UnityEngine.Events;
 using System;
 using System.Collections;
 using TMPro;
-using UnityEngine.UI;
 
 namespace VRKeys {
 
@@ -38,7 +37,7 @@ namespace VRKeys {
 
 		public string placeholderMessage = "Tap the keys to begin typing";
 
-		public Text displayText;
+		public TextMeshProUGUI displayText;
 
 		public GameObject validationNotice;
 

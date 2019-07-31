@@ -11,6 +11,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 namespace VRKeys {
 
@@ -48,14 +49,16 @@ namespace VRKeys {
 
 		private IEnumerator _Press;
 
+        
+
 		private void Awake () {
 			meshRenderer = GetComponent<MeshRenderer> ();
 
 			if (autoInit) {
 				Init (transform.localPosition);
 			}
-		}
 
+		}
 		/// <summary>
 		/// Initialize the key with a default position and pressed position.
 		/// </summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -104,7 +105,7 @@ public class GrabAndThrow : VRTK_InteractableObject
             if (projectile != null)
             {       
                 canva = GameObject.Find("Canvas").GetComponent<UImanager>();
-                GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
+                GameObject projectileClone = PhotonNetwork.Instantiate(projectile.name, body.transform.position, body.transform.rotation) as GameObject;
                 projectileClone.SetActive(true);
                 canva.InventoryButton();
                 Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();

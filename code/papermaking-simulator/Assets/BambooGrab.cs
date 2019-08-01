@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
@@ -17,9 +18,9 @@ public class BambooGrab : GrabAndThrow
     void OnChange()
     {
         Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
-        GameObject pooledBamboos = Instantiate(newbamboo, position, gameObject.transform.rotation);
+        GameObject pooledBamboos = PhotonNetwork.Instantiate(newbamboo.name, position, gameObject.transform.rotation);
         gameObject.transform.localScale = new Vector3(0, 0, 0);
         pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
-        Destroy(gameObject,2f);
+        PhotonNetwork.Destroy(gameObject.GetPhotonView());
     }
 }

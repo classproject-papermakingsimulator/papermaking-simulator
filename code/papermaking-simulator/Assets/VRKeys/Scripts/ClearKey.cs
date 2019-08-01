@@ -18,6 +18,13 @@ namespace VRKeys {
 	/// </summary>
 	public class ClearKey : Key {
 
+        public void click()
+        {
+            keyboard.SetText("");
+
+            ActivateFor(0.3f);
+        }
+
 		public override void HandleTriggerEnter (Collider other) {
 			keyboard.SetText ("");
 

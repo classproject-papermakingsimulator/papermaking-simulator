@@ -27,15 +27,9 @@ namespace VRKeys {
 
 		private bool _shifted = false;
 
-        private void Start()
+        public void Start()
         {
-            if (gameObject.GetComponent<Button>() == null)
-            {
-                gameObject.AddComponent<Button>(); 
-            }
-            print(1);
-            gameObject.GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<LetterKey>().click());
-            print(2);
+            gameObject.tag = "LetterKey";
         }
 
         public void click()
@@ -61,7 +55,7 @@ namespace VRKeys {
 		public override void HandleTriggerEnter (Collider other) {
 			keyboard.AddCharacter (GetCharacter ());
 
-			ActivateFor (0.3f);
+            ActivateFor (0.3f);
 		}
 	}
 }

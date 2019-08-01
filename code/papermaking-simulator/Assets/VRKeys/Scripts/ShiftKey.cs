@@ -19,7 +19,12 @@ namespace VRKeys {
 	public class ShiftKey : Key {
 		private bool shifted = false;
 
-		public override void HandleTriggerEnter (Collider other) {
+        public void click()
+        {
+            keyboard.ToggleShift();
+        }
+
+        public override void HandleTriggerEnter (Collider other) {
 			keyboard.ToggleShift ();
 		}
 

@@ -1,15 +1,18 @@
 ﻿namespace VRTK.Examples
 {
     using UnityEngine;
+    using VRKeys;
     using VRTK.Highlighters;
 
     public class rightcontroller : MonoBehaviour
     {
         public VRTK_DestinationMarker pointer;
+        public VRTK_ControllerEvents events;
         public bool logEnterEvent = true;
         public bool logHoverEvent = false;
         public bool logExitEvent = true;
         public bool logSetEvent = true;
+        private bool oneKey = true;
 
         protected virtual void OnEnable()
         {
@@ -175,21 +178,95 @@
             {
                 board.save();
             }
+            
         }
 
         protected virtual void hover(Transform target)
         {
-
+            if (target.tag.Equals("LetterKey"))
+            {
+                if(events.triggerPressed && oneKey)
+                {
+                    LetterKey letterkey = null;
+                    ShiftKey shiftkey = null;
+                    SpaceKey spacekey = null;
+                    BackspaceKey backspace = null;
+                    ClearKey clearkey = null;
+                    EnterKey enterkey = null;
+                    CancelKey cancelkey = null;
+                    if (target.tag.Equals("LetterKey"))
+                    {
+                        letterkey = (target != null ? target.GetComponent<LetterKey>() : null);
+                    }
+                    if (target.name.Equals("Shift"))
+                    {
+                        shiftkey = (target != null ? target.GetComponent<ShiftKey>() : null);
+                    }
+                    if (target.name.Equals("Space"))
+                    {
+                        spacekey = (target != null ? target.GetComponent<SpaceKey>() : null);
+                    }
+                    if (target.name.Equals("Backspace"))
+                    {
+                        backspace = (target != null ? target.GetComponent<BackspaceKey>() : null);
+                    }
+                    if (target.name.Equals("Clear"))
+                    {
+                        clearkey = (target != null ? target.GetComponent<ClearKey>() : null);
+                    }
+                    if (target.name.Equals("Enter"))
+                    {
+                        enterkey = (target != null ? target.GetComponent<EnterKey>() : null);
+                    }
+                    if (target.name.Equals("Cancel"))
+                    {
+                        cancelkey = (target != null ? target.GetComponent<CancelKey>() : null);
+                    }
+                    if (letterkey != null)
+                    {
+                        letterkey.click();
+                    }
+                    if(shiftkey != null)
+                    {
+                        shiftkey.click();
+                    }
+                    if (spacekey != null)
+                    {
+                        spacekey.click();
+                    }
+                    if (backspace != null)
+                    {
+                        backspace.click();
+                    }
+                    if (clearkey != null)
+                    {
+                        clearkey.click();
+                    }
+                    if (enterkey != null)
+                    {
+                        enterkey.click();
+                    }
+                    if (cancelkey != null)
+                    {
+                        cancelkey.click();
+                    }
+                    oneKey = false;
+                }
+            }
+            if(!events.triggerPressed)
+            {
+                oneKey = true;
+            }
         }
 
         protected virtual void enter(Transform target)
         {
-
+            
         }
 
         protected virtual void exit(Transform target)
         {
-
+            
         }
 
         protected virtual void DebugLogger(uint index, string action, Transform target, RaycastHit raycastHit, float distance, Vector3 tipPosition)

@@ -25,6 +25,7 @@ TagManager:
   - drys
   - drypaper
   - Board
+  - LetterKey
   layers:
   - Default
   - TransparentFX

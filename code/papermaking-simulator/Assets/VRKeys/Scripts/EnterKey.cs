@@ -18,6 +18,11 @@ namespace VRKeys {
 	/// </summary>
 	public class EnterKey : Key {
 
+        public void click()
+        {
+            keyboard.Submit();
+        }
+
 		public override void HandleTriggerEnter (Collider other) {
 			keyboard.Submit ();
 		}

@@ -82,6 +82,8 @@ namespace VRKeys {
 
 		public Key[] extraKeys;
 
+        public InputField target;
+
 		[Space (15)]
 		public bool leftPressing = false;
 
@@ -587,6 +589,10 @@ namespace VRKeys {
                     display,
                     ColorUtility.ToHtmlStringRGB(caretColor)
                 );
+                if(target != null)
+                {
+                    target.text = display;
+                }
             }
 			
 		}

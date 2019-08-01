@@ -8,15 +8,22 @@ public class KeyboardOut : MonoBehaviour
 {
     private InputField temp;
     public Keyboard keyboard;
+    private bool isInput;
     private void Update()
     {
         temp = gameObject.GetComponent<InputField>();
-        if (temp.isFocused)
+        if (temp.isFocused && !isInput)
         {
+            isInput = true;
             keyboard.Enable();
             keyboard.OnUpdate.AddListener(HandleUpdate);
             keyboard.OnSubmit.AddListener(HandleSubmit);
             keyboard.OnCancel.AddListener(HandleCancel);
+            keyboard.target = temp;
+        }
+        if(!temp.isFocused)
+        {
+            isInput = false;
         }
         //else
         //{
@@ -35,6 +42,10 @@ public class KeyboardOut : MonoBehaviour
     public void HandleSubmit(string text)
     {
         keyboard.DisableInput();
+        keyboard.OnUpdate.RemoveListener(HandleUpdate);
+        keyboard.OnSubmit.RemoveListener(HandleSubmit);
+        keyboard.OnCancel.RemoveListener(HandleCancel);
+        keyboard.Disable();
 
         //if (!ValidateEmail(text))
         //{
@@ -49,6 +60,10 @@ public class KeyboardOut : MonoBehaviour
     public void HandleCancel()
     {
         Debug.Log("Cancelled keyboard input!");
+        keyboard.OnUpdate.RemoveListener(HandleUpdate);
+        keyboard.OnSubmit.RemoveListener(HandleSubmit);
+        keyboard.OnCancel.RemoveListener(HandleCancel);
+        keyboard.Disable();
     }
 
 }

@@ -201,6 +201,7 @@ MonoBehaviour:
   projectileSpeed: 500
   pickable: 1
   writepaper: {fileID: 0}
+  counter: {fileID: 0}
 --- !u!54 &833223070521326015
 Rigidbody:
   m_ObjectHideFlags: 0

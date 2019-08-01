@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class drypaper : GrabAndThrow
 {
-    public GameObject writepaper;
     public GameObject counter;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "desk")
         {
+            counter = GameObject.Find("counter");
             if (counter.transform.position.z == 0)
             {
                 counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, (float)1);

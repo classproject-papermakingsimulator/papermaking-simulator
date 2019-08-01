@@ -15,7 +15,6 @@ public class grabController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue()));
         if (gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue()) == 1)
         {
             

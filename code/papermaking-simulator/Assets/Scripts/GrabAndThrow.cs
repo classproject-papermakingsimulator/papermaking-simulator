@@ -42,13 +42,13 @@ public class GrabAndThrow : VRTK_InteractableObject
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<BambooGrab>().inventoryAdd;
                 inventoryAdd.add();
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             if (name.Equals("Bamboo/staticBamboo2"))
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<pooledBamboo>().inventoryAdd;
                 inventoryAdd.add();
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             if (name.Equals("mash/Cube"))
             {
@@ -66,13 +66,13 @@ public class GrabAndThrow : VRTK_InteractableObject
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<wetpaperinteract>().inventoryAdd;
                 inventoryAdd.add();
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             if (name.Equals("drypaper"))
             {
                 inventoryAdd = GameObject.Find(name).GetComponent<drypaper>().inventoryAdd;
                 inventoryAdd.add();
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
 
 

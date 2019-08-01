@@ -38,7 +38,7 @@ namespace VRKeys {
 
 		public string placeholderMessage = "Tap the keys to begin typing";
 
-		public Text displayText;
+		public TextMeshProUGUI displayText;
 
 		public GameObject validationNotice;
 
@@ -359,12 +359,12 @@ namespace VRKeys {
 		/// </summary>
 		public void Submit () {
 			OnSubmit.Invoke (text);
-		}
+        }
 
-		/// <summary>
-		/// Cancel input and close the keyboard.
-		/// </summary>
-		public void Cancel () {
+        /// <summary>
+        /// Cancel input and close the keyboard.
+        /// </summary>
+        public void Cancel () {
 			OnCancel.Invoke ();
 			Disable ();
 		}
@@ -579,12 +579,16 @@ namespace VRKeys {
 		private void UpdateDisplayText () {
 			string display = (text.Length > 37) ? text.Substring (text.Length - 37) : text;
 
-			displayText.text = string.Format (
-				"<#{0}>{1}</color><#{2}>_</color>",
-				ColorUtility.ToHtmlStringRGB (displayTextColor),
-				display,
-				ColorUtility.ToHtmlStringRGB (caretColor)
-			);
+            if(displayText != null)
+            {
+                displayText.text = string.Format(
+                    "<#{0}>{1}</color><#{2}>_</color>",
+                    ColorUtility.ToHtmlStringRGB(displayTextColor),
+                    display,
+                    ColorUtility.ToHtmlStringRGB(caretColor)
+                );
+            }
+			
 		}
 
 		/// <summary>

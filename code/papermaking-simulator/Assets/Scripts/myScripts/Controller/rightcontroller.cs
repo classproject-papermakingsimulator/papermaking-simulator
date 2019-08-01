@@ -183,7 +183,7 @@
 
         protected virtual void hover(Transform target)
         {
-            if (target.tag.Equals("LetterKey"))
+            if (target.tag.Equals("LetterKey") || target.tag.Equals("Keys"))
             {
                 if(events.triggerPressed && oneKey)
                 {
@@ -232,6 +232,7 @@
                     }
                     if (spacekey != null)
                     {
+                        print("1");
                         spacekey.click();
                     }
                     if (backspace != null)

@@ -8,7 +8,6 @@ public class KeyboardOut : MonoBehaviour
 {
     private InputField temp;
     public Keyboard keyboard;
-    public Text target;
     private void Update()
     {
         temp = gameObject.GetComponent<InputField>();
@@ -18,7 +17,6 @@ public class KeyboardOut : MonoBehaviour
             keyboard.OnUpdate.AddListener(HandleUpdate);
             keyboard.OnSubmit.AddListener(HandleSubmit);
             keyboard.OnCancel.AddListener(HandleCancel);
-            keyboard.displayText = target;
         }
         //else
         //{

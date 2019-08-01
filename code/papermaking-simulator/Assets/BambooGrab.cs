@@ -21,6 +21,6 @@ public class BambooGrab : GrabAndThrow
         GameObject pooledBamboos = PhotonNetwork.Instantiate(newbamboo.name, position, gameObject.transform.rotation);
         gameObject.transform.localScale = new Vector3(0, 0, 0);
         pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
-        PhotonNetwork.Destroy(gameObject.GetPhotonView());
+        PhotonNetwork.Destroy(gameObject);
     }
 }

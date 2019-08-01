@@ -20,7 +20,7 @@ namespace VRKeys {
         public void click()
         {
             keyboard.AddCharacter(" ");
-
+            print("2");
             ActivateFor(0.3f);
         }
 

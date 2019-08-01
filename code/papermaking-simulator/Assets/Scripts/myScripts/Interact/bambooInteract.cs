@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,7 +69,7 @@ public class bambooInteract : MonoBehaviour
     public void pick()
     {
         inventory.add();
-        gameObject.SetActive(false);
+        PhotonNetwork.Destroy(gameObject);
     }
 
     //public void getOne()
@@ -77,7 +78,7 @@ public class bambooInteract : MonoBehaviour
     //    {
     //        if (projectile != null)
     //        {
-      
+
     //            GameObject projectileClone = Instantiate(projectile, body.transform.position, body.transform.rotation) as GameObject;
     //            canva.InventoryButton();
     //            Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();

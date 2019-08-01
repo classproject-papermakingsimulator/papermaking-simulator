@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class wetpaper : MonoBehaviour
 {
+    public GameObject counter;
     private int count = 0;
+    private int newcount = 0;
     public GameObject paper;
     public GameObject paper1;
     public GameObject paper2;
@@ -16,50 +19,12 @@ public class wetpaper : MonoBehaviour
     private bool pickable;
     private int wets = 20;
 
-    public void add()
+    private void Update()
     {
-        switch (count)
-        {
-            case 0:
-                paper.SetActive(true);
-                count++;
-                break;
-            case 1:
-                paper1.SetActive(true);
-                count++;
-                break;
-            case 2:
-                paper2.SetActive(true);
-                count++;
-                break;
-            case 3:
-                paper3.SetActive(true);
-                count++;
-                break;
-            case 4:
-                paper4.SetActive(true);
-                count++;
-                break;
-            case 5:
-                paper5.SetActive(true);
-                count++;
-                break;
-            case 6:
-                paper6.SetActive(true);
-                count++;
-                break;
-            default:
-                count++;
-                break;
-        }
-    }
+        count = (int)counter.transform.position.x;
 
-    public void paperpick()
-    {
-        if(pickable)
+        if(count == 0)
         {
-            for (int i = 0; i < count; ++i)
-                inventory.add();
             paper.SetActive(false);
             paper1.SetActive(false);
             paper2.SetActive(false);
@@ -67,7 +32,63 @@ public class wetpaper : MonoBehaviour
             paper4.SetActive(false);
             paper5.SetActive(false);
             paper6.SetActive(false);
-            count = 0;
+        }
+    }
+
+    public void add()
+    {
+        switch (count)
+        {
+            case 0:
+                paper.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 1:
+                paper1.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 2:
+                paper2.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 3:
+                paper3.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 4:
+                paper4.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 5:
+                paper5.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            case 6:
+                paper6.SetActive(true);
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+            default:
+                newcount = count + 1;
+                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                break;
+        }
+    }
+    
+    public void paperpick()
+    {
+        if(pickable)
+        {
+            for (int i = 0; i < count; ++i)
+                inventory.add();
+            counter.transform.position = new Vector3(0, counter.transform.position.y, counter.transform.position.z);
+            newcount = 0;
         }
     }
 

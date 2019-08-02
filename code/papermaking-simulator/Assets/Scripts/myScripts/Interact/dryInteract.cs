@@ -19,9 +19,15 @@ public class dryInteract : MonoBehaviour
     void Update()
     {
         if (counter.transform.localPosition.x == 0)
+        {
             isDry = false;
+            drypaper.SetActive(false);
+        }
         else
+        {
             isDry = true;
+            drypaper.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

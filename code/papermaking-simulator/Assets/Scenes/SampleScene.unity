@@ -12527,6 +12527,7 @@ MonoBehaviour:
   end8: {fileID: 350632638}
   start: {fileID: 860557346}
   bamboo: {fileID: 466799757}
+  counter: {fileID: 0}
 --- !u!1 &868007058
 GameObject:
   m_ObjectHideFlags: 0
@@ -23885,8 +23886,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1225213947}
-  viewIdField: 15
-  InstantiationId: 15
+  viewIdField: 1
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!1 &1240203940
 GameObject:
@@ -45042,6 +45043,7 @@ MonoBehaviour:
   end8: {fileID: 1704895974}
   start: {fileID: 2133866919}
   bamboo: {fileID: 1339438446}
+  counter: {fileID: 0}
 --- !u!54 &2133866924
 Rigidbody:
   m_ObjectHideFlags: 0

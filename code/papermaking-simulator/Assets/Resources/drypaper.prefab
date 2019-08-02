@@ -200,7 +200,6 @@ MonoBehaviour:
   inventoryAdd: {fileID: 0}
   projectileSpeed: 500
   pickable: 1
-  writepaper: {fileID: 0}
   counter: {fileID: 0}
 --- !u!54 &833223070521326015
 Rigidbody:

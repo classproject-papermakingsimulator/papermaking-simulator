@@ -37,7 +37,6 @@ public class wetpaper : MonoBehaviour
 
     public void add()
     {
-        print(count);
         switch (count)
         {
             case 0:
@@ -77,6 +76,13 @@ public class wetpaper : MonoBehaviour
                 break;
             default:
                 newcount = count + 1;
+                paper.SetActive(true);
+                paper1.SetActive(true);
+                paper2.SetActive(true);
+                paper3.SetActive(true);
+                paper4.SetActive(true);
+                paper5.SetActive(true);
+                paper6.SetActive(true);
                 counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
                 break;
         }

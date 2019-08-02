@@ -21,7 +21,7 @@ public class trans : GrabAndThrow
         {
             linkedObject.InteractableObjectUsed += InteractableObjectUsed;
         }
-        count = 0;
+        count = 0;  
         hammerable = false;
         counter = GameObject.Find("Environment/Pail/pailcounter");
     }
@@ -40,7 +40,7 @@ public class trans : GrabAndThrow
         }
         if (collision.collider.name == "sledgeHammer" && hammerable)
         {
-            counter.transform.position = new Vector3(count++, counter.transform.position.y, counter.transform.position.z);
+            counter.transform.position = new Vector3(count + 1, counter.transform.position.y, counter.transform.position.z);
             changeObject();
             Vector3 temp = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
             Vector3 temp2 = new Vector3(0, 0, 0);
@@ -54,7 +54,7 @@ public class trans : GrabAndThrow
     {
         if(other.tag == "tub" && thisOne.name == "Capsule")
         {
-            PhotonNetwork.Destroy(gameObject);
+            gameObject.GetComponentInParent<destroyMash>().DestroyIt();
         }
     }
 
@@ -70,6 +70,7 @@ public class trans : GrabAndThrow
                 second.transform.rotation = new Quaternion(0, 0, 0, 0);
                 second.SetActive(true);
                 thisOne.SetActive(false);
+                counter.transform.position = new Vector3(count, 1, counter.transform.position.z);
             }
             if (thisOne.name == "Sphere")
             {
@@ -78,6 +79,7 @@ public class trans : GrabAndThrow
                 third.transform.rotation = new Quaternion(0, 0, 0, 0);
                 third.SetActive(true);
                 thisOne.SetActive(false);
+                counter.transform.position = new Vector3(count, 2, counter.transform.position.z);
             }
         }
     }
@@ -86,5 +88,29 @@ public class trans : GrabAndThrow
     {
         base.Update();
         count = (int)counter.transform.position.x;
+        switch (counter.transform.position.y)
+        {
+            case 1:
+                {
+                    Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                    second.transform.position = tmp;
+                    second.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    second.SetActive(true);
+                    thisOne.SetActive(false);
+                    break;
+                }
+
+            case 2:
+                {
+                    Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                    third.transform.position = tmp;
+                    third.transform.rotation = new Quaternion(0, 0, 0, 0);
+                    third.SetActive(true);
+                    thisOne.SetActive(false);
+                    break;
+                }
+            default:
+                break;
+        }
     }
 }

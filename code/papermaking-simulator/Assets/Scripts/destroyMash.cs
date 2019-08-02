@@ -12,8 +12,6 @@ public class destroyMash : MonoBehaviour
 
     public void changeTrans(Vector3 temp)
     {
-        print(temp);
         gameObject.transform.position = temp;
-        print(gameObject.transform.position);
     }
 }

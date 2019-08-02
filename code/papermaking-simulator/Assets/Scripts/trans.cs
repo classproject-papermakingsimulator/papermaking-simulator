@@ -21,14 +21,14 @@ public class trans : GrabAndThrow
         {
             linkedObject.InteractableObjectUsed += InteractableObjectUsed;
         }
-        count = 0;  
+        count = 0;
         hammerable = false;
         counter = GameObject.Find("Environment/Pail/pailcounter");
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(counter == null)
+        if (counter == null)
             counter = GameObject.Find("Environment/Pail/pailcounter");
         if (collision.collider.name == "Pail" && !hammerable)
         {
@@ -40,7 +40,8 @@ public class trans : GrabAndThrow
         }
         if (collision.collider.name == "sledgeHammer" && hammerable)
         {
-            counter.transform.position = new Vector3(count + 1, counter.transform.position.y, counter.transform.position.z);
+            float newx = counter.transform.localPosition.x + 1;
+            counter.transform.localPosition = new Vector3(newx, counter.transform.localPosition.y, 0);
             changeObject();
             Vector3 temp = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
             Vector3 temp2 = new Vector3(0, 0, 0);
@@ -52,7 +53,7 @@ public class trans : GrabAndThrow
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "tub" && thisOne.name == "Capsule")
+        if (other.tag == "tub" && thisOne.name == "Capsule")
         {
             gameObject.GetComponentInParent<destroyMash>().DestroyIt();
         }
@@ -60,9 +61,9 @@ public class trans : GrabAndThrow
 
     private void changeObject()
     {
-        if(count >= 10)
+        count = (int)counter.transform.localPosition.x;
+        if (count >= 10)
         {
-            
             if (thisOne.name == "Cube")
             {
                 Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
@@ -70,7 +71,7 @@ public class trans : GrabAndThrow
                 second.transform.rotation = new Quaternion(0, 0, 0, 0);
                 second.SetActive(true);
                 thisOne.SetActive(false);
-                counter.transform.position = new Vector3(count, 1, counter.transform.position.z);
+                counter.transform.localPosition = new Vector3(0, 1, 0);
             }
             if (thisOne.name == "Sphere")
             {
@@ -79,16 +80,10 @@ public class trans : GrabAndThrow
                 third.transform.rotation = new Quaternion(0, 0, 0, 0);
                 third.SetActive(true);
                 thisOne.SetActive(false);
-                counter.transform.position = new Vector3(count, 2, counter.transform.position.z);
+                counter.transform.localPosition = new Vector3(0, 2, 0);
             }
         }
-    }
-
-    private void Update()
-    {
-        base.Update();
-        count = (int)counter.transform.position.x;
-        switch (counter.transform.position.y)
+        switch ((int)counter.transform.localPosition.y)
         {
             case 1:
                 {

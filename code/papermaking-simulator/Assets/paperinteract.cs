@@ -33,6 +33,33 @@ public class paperinteract : MonoBehaviour
             paper6.SetActive(false);
             paper7.SetActive(false);
         }
+        switch (count)
+        {
+            case 1:
+                paper.SetActive(true);
+                break;
+            case 2:
+                paper1.SetActive(true);
+                break;
+            case 3:
+                paper2.SetActive(true);
+                break;
+            case 4:
+                paper3.SetActive(true);
+                break;
+            case 5:
+                paper4.SetActive(true);
+                break;
+            case 6:
+                paper5.SetActive(true);
+                break;
+            case 7:
+                paper6.SetActive(true);
+                break;
+            case 8:
+                paper7.SetActive(true);
+                break;
+        }
     }
 
     public void add()

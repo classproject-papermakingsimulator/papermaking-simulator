@@ -37,6 +37,7 @@ public class wetpaper : MonoBehaviour
 
     public void add()
     {
+        print(count);
         switch (count)
         {
             case 0:

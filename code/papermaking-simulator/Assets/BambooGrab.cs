@@ -17,10 +17,13 @@ public class BambooGrab : GrabAndThrow
 
     void OnChange()
     {
-        Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
-        GameObject pooledBamboos = PhotonNetwork.Instantiate(newbamboo.name, position, gameObject.transform.rotation);
-        gameObject.transform.localScale = new Vector3(0, 0, 0);
-        pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
-        PhotonNetwork.Destroy(gameObject);
+        if (gameObject != null)
+        {
+            Vector3 position = new Vector3((float)381.3, 6, (float)335.39);
+            GameObject pooledBamboos = PhotonNetwork.Instantiate(newbamboo.name, position, gameObject.transform.rotation);
+            gameObject.transform.localScale = new Vector3(0, 0, 0);
+            pooledBamboos.GetComponent<Rigidbody>().isKinematic = false;
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

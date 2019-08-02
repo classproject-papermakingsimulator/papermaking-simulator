@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,10 +19,10 @@ public class pooledBamboo : GrabAndThrow
     private void toBoil()
     {
         Vector3 position = new Vector3((float)268.6058, 2, (float)325.2);
-        GameObject pooledBamboos = Instantiate(mash, position, gameObject.transform.rotation);
+        GameObject pooledBamboos = PhotonNetwork.Instantiate(mash.name, position, gameObject.transform.rotation);
         pooledBamboos.GetComponentInChildren<Rigidbody>().isKinematic = false;
         //intoBoil = GameObject.Find("furnace/Barrel").GetComponent<boilInteract>();
         //intoBoil.boil();
-        Destroy(gameObject,2f);
+        PhotonNetwork.Destroy(gameObject);
     }
 }

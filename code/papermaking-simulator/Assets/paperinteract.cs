@@ -42,46 +42,46 @@ public class paperinteract : MonoBehaviour
             case 0:
                 paper.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 1:
                 paper1.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 2:
                 paper2.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 3:
                 paper3.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 4:
                 paper4.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 5:
                 paper5.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 6:
                 paper6.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             case 7:
                 paper7.SetActive(true);
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
             default:
                 newcount = count + 1;
-                counter.transform.position = new Vector3((float)newcount, counter.transform.position.y, counter.transform.position.z);
+                counter.transform.position = new Vector3(counter.transform.position.x, (float)newcount, counter.transform.position.z);
                 break;
         }
     }

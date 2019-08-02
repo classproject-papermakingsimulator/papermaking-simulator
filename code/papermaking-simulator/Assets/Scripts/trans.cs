@@ -8,6 +8,7 @@ public class trans : GrabAndThrow
     public GameObject second;
     public GameObject third;
     public GameObject thisOne;
+    public GameObject counter;
     private int count;
     private bool hammerable;
 
@@ -21,7 +22,7 @@ public class trans : GrabAndThrow
         }
         count = 0;
         hammerable = false;
-
+        counter = GameObject.Find("Environment/Pail/pailcounter");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,7 +37,7 @@ public class trans : GrabAndThrow
         }
         if (collision.collider.name == "sledgeHammer" && hammerable)
         {
-            count++;
+            counter.transform.position = new Vector3(count++, counter.transform.position.y, counter.transform.position.z);
             changeObject();
             Vector3 temp = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
             Vector3 temp2 = new Vector3(0, 0, 0);
@@ -76,5 +77,10 @@ public class trans : GrabAndThrow
                 thisOne.SetActive(false);
             }
         }
+    }
+
+    private void Update()
+    {
+        count = (int)counter.transform.position.x;
     }
 }

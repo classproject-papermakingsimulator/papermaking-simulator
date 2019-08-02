@@ -7,23 +7,28 @@ public class dryInteract : MonoBehaviour
     bool isDry;
     public GameObject drypaper;
     public GameObject paper;
+    public GameObject counter;
     // Start is called before the first frame update
     void Start()
     {
         isDry = false;
+        counter.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (counter.transform.localPosition.x == 0)
+            isDry = false;
+        else
+            isDry = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(!isDry && collision.collider.tag == "wet")
         {
-            isDry = true;
+            counter.transform.localPosition = new Vector3(1, 0, 0);
             drypaper.SetActive(true);
             Timer.Register(5f, () => dry());
         }
@@ -31,7 +36,7 @@ public class dryInteract : MonoBehaviour
 
     private void dry()
     {
-        isDry = false;
+        counter.transform.localPosition = new Vector3(0, 0, 0);
         drypaper.SetActive(false);
         paper.GetComponent<paperinteract>().add();
     }

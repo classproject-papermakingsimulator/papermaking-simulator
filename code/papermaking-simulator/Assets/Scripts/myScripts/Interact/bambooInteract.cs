@@ -19,6 +19,7 @@ public class bambooInteract : MonoBehaviour
     public Transform end8;
     public Transform start;
     public GameObject bamboo;
+    public GameObject counter;
     //public GameObject projectile;
     //public Transform body;
     private int num = 10;
@@ -43,6 +44,7 @@ public class bambooInteract : MonoBehaviour
         end6.gameObject.SetActive(false);
         end7.gameObject.SetActive(false);
         end8.gameObject.SetActive(false);
+        counter = PhotonNetwork.Instantiate("BambooCounter", new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
     }
 
     public void cutdown(double v)
@@ -53,13 +55,15 @@ public class bambooInteract : MonoBehaviour
             print("large");
         else if (v > 16)
         {
-            count += 2;
+            float x = counter.transform.position.x + 2;
+            counter.transform.position = new Vector3(x, counter.transform.position.y, counter.transform.position.z);
             print(count);
             isDown();
         }
         else
         {
-            count ++;
+            float x = counter.transform.position.x + 1;
+            counter.transform.position = new Vector3(x, counter.transform.position.y, counter.transform.position.z);
             print(count);
             isDown();
         }
@@ -98,13 +102,14 @@ public class bambooInteract : MonoBehaviour
     {
         if(count == 1 || count == 2)
         {
-            count = 0;
+            counter.transform.position = new Vector3(0, counter.transform.position.y, counter.transform.position.z);
             down = true;
         }
     }
 
     private void Update()
     {
+        count = (int)counter.transform.position.x;
         if(down)
         {
             bamboo.GetComponent<MeshCollider>().enabled = true;

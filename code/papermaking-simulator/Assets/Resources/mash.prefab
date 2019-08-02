@@ -225,6 +225,7 @@ MonoBehaviour:
   second: {fileID: 6001876005194790172}
   third: {fileID: 6001876004008066641}
   thisOne: {fileID: 6001876004008066641}
+  counter: {fileID: 0}
 --- !u!54 &6001876004107474461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   second: {fileID: 6001876005194790172}
   third: {fileID: 6001876004008066641}
   thisOne: {fileID: 6001876004056699433}
+  counter: {fileID: 0}
 --- !u!1 &6001876005194790172
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +422,7 @@ MonoBehaviour:
   second: {fileID: 6001876005194790172}
   third: {fileID: 6001876004008066641}
   thisOne: {fileID: 6001876005194790172}
+  counter: {fileID: 0}
 --- !u!54 &6001876005194790178
 Rigidbody:
   m_ObjectHideFlags: 0

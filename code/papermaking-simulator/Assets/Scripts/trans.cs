@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
@@ -27,6 +28,8 @@ public class trans : GrabAndThrow
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(counter == null)
+            counter = GameObject.Find("Environment/Pail/pailcounter");
         if (collision.collider.name == "Pail" && !hammerable)
         {
             Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
@@ -51,7 +54,7 @@ public class trans : GrabAndThrow
     {
         if(other.tag == "tub" && thisOne.name == "Capsule")
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -81,6 +84,7 @@ public class trans : GrabAndThrow
 
     private void Update()
     {
+        base.Update();
         count = (int)counter.transform.position.x;
     }
 }

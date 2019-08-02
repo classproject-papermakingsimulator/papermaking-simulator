@@ -87,21 +87,27 @@ public class trans : GrabAndThrow
         {
             case 1:
                 {
-                    Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
-                    second.transform.position = tmp;
-                    second.transform.rotation = new Quaternion(0, 0, 0, 0);
-                    second.SetActive(true);
-                    thisOne.SetActive(false);
+                    if (thisOne.name == "Cube")
+                    {
+                        Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                        second.transform.position = tmp;
+                        second.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        second.SetActive(true);
+                        thisOne.SetActive(false);
+                    }
                     break;
                 }
 
             case 2:
                 {
-                    Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
-                    third.transform.position = tmp;
-                    third.transform.rotation = new Quaternion(0, 0, 0, 0);
-                    third.SetActive(true);
-                    thisOne.SetActive(false);
+                    if (thisOne.name == "Sphere")
+                    {
+                        Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
+                        third.transform.position = tmp;
+                        third.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        third.SetActive(true);
+                        thisOne.SetActive(false);
+                    }
                     break;
                 }
             default:

@@ -12,6 +12,7 @@ public class trans : GrabAndThrow
     public GameObject counter;
     private int count;
     private bool hammerable;
+    private int locker;
 
     protected override void OnEnable()
     {
@@ -23,7 +24,18 @@ public class trans : GrabAndThrow
         }
         count = 0;
         hammerable = false;
+        locker = 0;
         counter = GameObject.Find("Environment/Pail/pailcounter");
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if(locker != (int)counter.transform.localPosition.y)
+        {
+            switchObject();
+            locker = (int)counter.transform.localPosition.y;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,7 +80,7 @@ public class trans : GrabAndThrow
             {
                 Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
                 second.transform.position = tmp;
-                second.transform.rotation = new Quaternion(0, 0, 0, 0);
+                //second.transform.rotation = new Quaternion(0, 0, 0, 0);
                 second.SetActive(true);
                 thisOne.SetActive(false);
                 counter.transform.localPosition = new Vector3(0, 1, 0);
@@ -77,12 +89,16 @@ public class trans : GrabAndThrow
             {
                 Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
                 third.transform.position = tmp;
-                third.transform.rotation = new Quaternion(0, 0, 0, 0);
+                //third.transform.rotation = new Quaternion(0, 0, 0, 0);
                 third.SetActive(true);
                 thisOne.SetActive(false);
                 counter.transform.localPosition = new Vector3(0, 2, 0);
             }
-        }
+        } 
+    }
+
+    private void switchObject()
+    {
         switch ((int)counter.transform.localPosition.y)
         {
             case 1:

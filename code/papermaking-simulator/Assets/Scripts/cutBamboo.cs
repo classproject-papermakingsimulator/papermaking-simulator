@@ -10,6 +10,7 @@ public class cutBamboo : VRTK_InteractableObject
     private float collisionForce = 0f;
     private float maxCollisionForce = 1000f;
     private VRTK_ControllerReference controllerReference;
+    private bool hasCollided = false;
 
     public float CollisionForce()
     {
@@ -37,6 +38,8 @@ public class cutBamboo : VRTK_InteractableObject
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (this.hasCollided == true) { return; }
+        this.hasCollided = true;
         Vector3 v = gameObject.GetComponent<Rigidbody>().velocity;
         double vm = Mathf.Sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
         if (VRTK_ControllerReference.IsValid(controllerReference) && IsGrabbed())
@@ -59,6 +62,7 @@ public class cutBamboo : VRTK_InteractableObject
         {
             collisionForce = collision.relativeVelocity.magnitude * impactMagnifier;
         }
+        Timer.Register(1f, () => { this.hasCollided = false; });
     }
 
 }

@@ -33160,6 +33160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6d2feee953ee745a88d60cbe2a6fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mash: {fileID: 7056756951488209877, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
 --- !u!1001 &1787598906
 PrefabInstance:
   m_ObjectHideFlags: 0

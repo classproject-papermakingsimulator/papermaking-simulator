@@ -5,24 +5,19 @@ using UnityEngine;
 
 public class pooledBamboo : GrabAndThrow
 {
-    private boilInteract intoBoil;
-    public GameObject mash;
+    
+    public boilInteract boil;
+
     private void OnCollisionEnter(Collision collision)
     {
+        boil = GameObject.Find("furnace/Barrel").GetComponent<boilInteract>();
         if(collision.collider.tag == "boil")
         {
-            gameObject.transform.localScale = new Vector3(0, 0, 0);
-            Timer.Register(5f, () => toBoil());
+            if(boil.boil())
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 
-    private void toBoil()
-    {
-        Vector3 position = new Vector3((float)268.6058, 2, (float)325.2);
-        GameObject pooledBamboos = PhotonNetwork.Instantiate(mash.name, position, gameObject.transform.rotation);
-        pooledBamboos.GetComponentInChildren<Rigidbody>().isKinematic = false;
-        //intoBoil = GameObject.Find("furnace/Barrel").GetComponent<boilInteract>();
-        //intoBoil.boil();
-        PhotonNetwork.Destroy(gameObject);
-    }
 }

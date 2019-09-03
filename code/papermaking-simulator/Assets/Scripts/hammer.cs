@@ -9,6 +9,7 @@ public class hammer : VRTK_InteractableObject
     private float collisionForce = 0f;
     private float maxCollisionForce = 100f;
     private VRTK_ControllerReference controllerReference;
+    private bool hasCollided = false;
 
     public float CollisionForce()
     {
@@ -36,7 +37,8 @@ public class hammer : VRTK_InteractableObject
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (this.hasCollided == true) { return; }
+        this.hasCollided = true;
         if (VRTK_ControllerReference.IsValid(controllerReference) && IsGrabbed())
         {
             collisionForce = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude * impactMagnifier;
@@ -47,6 +49,7 @@ public class hammer : VRTK_InteractableObject
         {
             collisionForce = collision.relativeVelocity.magnitude * impactMagnifier;
         }
+        Timer.Register(1f, () => { this.hasCollided = false; });
     }
 
 }

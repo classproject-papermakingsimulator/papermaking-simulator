@@ -12,24 +12,27 @@ public class filterInteract : MonoBehaviour
     public GameObject wetpapers;
     private bool isWater = false;
     private bool isPaper = false;
+    private int count = 0;
+    private bool hasCollided = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (this.hasCollided == true) { return; }
+        this.hasCollided = true;
         if (other.tag == "tub")
         {
             if (!isWater)
             {
                 isWater = true;
+                countjudge();
             }
         }
-        if(other.tag == "plane" && isPaper)
-        {
-
-        }
-        if (other.tag == "wets")
+        if (other.tag == "wets" && isPaper)
         {
             wetpapers.GetComponent<wetpaper>().add();
+            isPaper = false;
         }
+        Timer.Register(1f, () => { this.hasCollided = false; });
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,6 +50,11 @@ public class filterInteract : MonoBehaviour
             GameObject target = minPoint();
             if(!target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().isPlaying)
                 target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Play();
+        }
+        if(count >= 3)
+        {
+            count = 0;
+            isPaper = true;
         }
     }
 
@@ -81,5 +89,38 @@ public class filterInteract : MonoBehaviour
         l2.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
         l3.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Stop();
         return l4;
+    }
+
+    private void countjudge()
+    {
+        Transform point1 = l1.transform.Find("point").GetComponent<Transform>();
+        Transform point2 = l2.transform.Find("point").GetComponent<Transform>();
+        Transform point3 = l3.transform.Find("point").GetComponent<Transform>();
+        Transform point4 = l4.transform.Find("point").GetComponent<Transform>();
+        double angle;
+        if (point1.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
+        {
+            angle = Mathf.Abs((point2.position.y - point1.position.y) / (point2.position.x - point1.position.x));
+            if(angle < 1 && angle > 0.577)
+            {
+                count++;
+            }
+            return;
+        }
+        if (point2.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
+        {
+            angle = Mathf.Abs((point2.position.y - point1.position.y) / (point2.position.x - point1.position.x));
+            if (angle < 1 && angle > 0.577)
+            {
+                count++;
+            }
+            return;
+        }
+        angle = Mathf.Abs((point3.position.y - point4.position.y) / (point3.position.x - point4.position.x));
+        if (angle < 1 && angle > 0.577)
+        {
+            count++;
+        }
+        return;
     }
 }

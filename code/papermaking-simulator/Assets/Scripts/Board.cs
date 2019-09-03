@@ -87,6 +87,7 @@ public class Board : MonoBehaviour
         {
             lastPaintX = lastPaintY = 0;
         }
+        
 
     }
 
@@ -149,7 +150,7 @@ public class Board : MonoBehaviour
     public void confirm()
     {
         print("按钮触发");
-        isDone = true;
+        isDone = true; 
     }
 
 

@@ -19,11 +19,7 @@ public class grabController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter.transform.position.x == 0)
-            isToggle = false;
-        else
-            isToggle = true;
-        if (gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue()) == 1)
+        if (gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue()) >= 0.9)
         {
             counter.transform.position = new Vector3(1, 0, 0);
         }
@@ -31,10 +27,18 @@ public class grabController : MonoBehaviour
         {
             counter.transform.position = new Vector3(0, 0, 0);
         }
+        if (counter.transform.position.x <= 0.5)
+            isToggle = false;
+        else
+            isToggle = true;
+        //print(gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue())); 
         if (isToggle)
         {
             if (board.activeSelf)
+            {
+                print("准备保存");
                 board.GetComponent<Board>().confirm();
+            } 
             else
             {
                 gameObject.GetComponent<VRTK_ArtificialRotator>().SetValue(0);

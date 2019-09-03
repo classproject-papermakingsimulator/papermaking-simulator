@@ -19,13 +19,13 @@ public class filterInteract : MonoBehaviour
     {
         if (this.hasCollided == true) { return; }
         this.hasCollided = true;
-        if (other.tag == "tub")
+        if (other.tag == "tub")         
         {
             if (!isWater)
             {
                 isWater = true;
-                countjudge();
             }
+            countjudge();
         }
         if (other.tag == "wets" && isPaper)
         {
@@ -51,7 +51,7 @@ public class filterInteract : MonoBehaviour
             if(!target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().isPlaying)
                 target.transform.Find("Rain Basic").GetComponent<ParticleSystem>().Play();
         }
-        if(count >= 3)
+        if(count >= 1)
         {
             count = 0;
             isPaper = true;
@@ -101,7 +101,7 @@ public class filterInteract : MonoBehaviour
         if (point1.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
             angle = Mathf.Abs((point2.position.y - point1.position.y) / (point2.position.x - point1.position.x));
-            if(angle < 1 && angle > 0.577)
+            if (angle < 1 && angle > 0.577)
             {
                 count++;
             }

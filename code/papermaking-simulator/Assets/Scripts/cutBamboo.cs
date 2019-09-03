@@ -11,6 +11,7 @@ public class cutBamboo : VRTK_InteractableObject
     private float maxCollisionForce = 1000f;
     private VRTK_ControllerReference controllerReference;
     private bool hasCollided = false;
+    public GameObject bambooToCut;
 
     public float CollisionForce()
     {
@@ -47,7 +48,7 @@ public class cutBamboo : VRTK_InteractableObject
             if (collision.collider.tag == "bamboo")
             {
                 print(collision.collider.name);
-                GameObject.Find(collision.collider.name).GetComponent<bambooInteract>().cutdown(vm);
+                bambooToCut.GetComponent<bambooInteract>().cutdown(vm);
                 ContactPoint contactPoint = collision.contacts[0];
                 Vector3 newDir = Vector3.zero;
                 Vector3 curDir = transform.TransformDirection(Vector3.forward);

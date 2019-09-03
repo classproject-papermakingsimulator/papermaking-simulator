@@ -24600,6 +24600,7 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+  bambooToCut: {fileID: 2133866918}
 --- !u!114 &1271690278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45072,8 +45073,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 2133866921}
-  viewIdField: 15
-  InstantiationId: 15
+  viewIdField: 16
+  InstantiationId: 16
   isRuntimeInstantiated: 0
 --- !u!54 &2133866924
 Rigidbody:
@@ -45453,7 +45454,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1158326457457437044}
   viewIdField: 8
-  InstantiationId: 11
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &3568227662121065937 stripped
 MonoBehaviour:

@@ -171,7 +171,7 @@ MonoBehaviour:
   inventoryAdd: {fileID: 0}
   projectileSpeed: 500
   pickable: 1
-  mash: {fileID: 7056756951488209877, guid: 0e5e6fcd53679174cbc9c1af5cba1242, type: 3}
+  boil: {fileID: 0}
 --- !u!114 &9170802755533975725
 MonoBehaviour:
   m_ObjectHideFlags: 0

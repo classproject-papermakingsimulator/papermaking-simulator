@@ -6,7 +6,7 @@ public class buildBoard : MonoBehaviour
 {
     public GameObject counter;
     public GameObject board;
-    private int count = 0;
+    private float count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +15,8 @@ public class buildBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        count = (int)counter.transform.position.z;
-        if (count != 0)
+        count = counter.transform.position.z;
+        if (count >= 0.5)
         {
             board.SetActive(true);
         }

@@ -7,12 +7,14 @@ public class grabController : MonoBehaviour
 {
     public GameObject board;
     public GameObject counter;
+    private float toReturn;
 
     private bool isToggle;
     // Start is called before the first frame update
     void Start()
     {
         counter.transform.position = new Vector3(0, 0, 0);
+        toReturn = gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue();
     }
 
 
@@ -36,12 +38,11 @@ public class grabController : MonoBehaviour
         {
             if (board.activeSelf)
             {
-                print("准备保存");
                 board.GetComponent<Board>().confirm();
             } 
             else
             {
-                gameObject.GetComponent<VRTK_ArtificialRotator>().SetValue(0);
+                gameObject.GetComponent<VRTK_ArtificialRotator>().SetValue(toReturn);
             }
         }
     }

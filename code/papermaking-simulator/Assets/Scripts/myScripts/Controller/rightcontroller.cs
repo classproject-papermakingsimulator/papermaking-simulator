@@ -121,7 +121,11 @@
             if (target.tag.Equals("drypaper"))//1
                 drypaper = (target != null ? target.GetComponent<drypaper>() : null);
             if (target.tag.Equals("Board"))//1
+            {
+                //print("tag收到");
                 board = (target != null ? target.GetComponent<Board>() : null);
+            }
+               
             if (cart != null)
             {
                 cart.Point();
@@ -176,6 +180,7 @@
             }
             if(board != null)
             {
+                //print("save要跑了");
                 board.save();
             }
             

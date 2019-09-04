@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Photon.Pun;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ public class Board : MonoBehaviour
 
     private Color32[] currentColor;
     private Color32[] originColor;
-
+    public GameObject counter;
     private bool isDone;
 
 
@@ -133,7 +134,7 @@ public class Board : MonoBehaviour
 
     public void save()
     {
-        if(isDone)
+        if (isDone)
         {
             byte[] dataBytes = currentTexture.EncodeToPNG();
             string strSaveFile = Application.dataPath + "/Texture/rt_" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".png";
@@ -143,13 +144,15 @@ public class Board : MonoBehaviour
             writer.Write(dataBytes);
             fs.Flush();
             fs.Close();
-            gameObject.SetActive(false);
+            counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, 0);
+            //gameObject.SetActive(false);
         }
+
     }
 
     public void confirm()
     {
-        print("按钮触发");
+        //print("按钮触发");
         isDone = true; 
     }
 

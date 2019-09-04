@@ -47,7 +47,7 @@ public class trans : GrabAndThrow
             Vector3 tmp = new Vector3((float)268.6018, (float)0.3, (float)325.1262);
             gameObject.transform.position = tmp;
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             hammerable = true;
         }
         if (collision.collider.name == "sledgeHammer" && hammerable)

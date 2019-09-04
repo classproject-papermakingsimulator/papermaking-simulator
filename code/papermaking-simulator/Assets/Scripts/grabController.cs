@@ -42,6 +42,7 @@ public class grabController : MonoBehaviour
             } 
             else
             {
+                print(gameObject.GetComponent<VRTK_ArtificialRotator>().GetStepValue(gameObject.GetComponent<VRTK_ArtificialRotator>().GetValue()));
                 gameObject.GetComponent<VRTK_ArtificialRotator>().SetValue(toReturn);
             }
         }

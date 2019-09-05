@@ -7,15 +7,19 @@ public class UImanager : MonoBehaviour
 {
     public GameObject telUI;
     public GameObject inventoryUI;
+    public GameObject instructorUI;
+    public GameObject cutUI;
     public GameObject eyecamera;
     public VRTK_ControllerEvents leftController;
     public VRTK_ControllerEvents rightController;
     // Start is called before the first frame update
     protected bool inventoryState;
+    protected bool instructorState;
 
     protected virtual void OnEnable()
     {
         inventoryState = false;
+        instructorState = false;
         RegisterEvents(leftController);
         RegisterEvents(rightController);
     }
@@ -32,6 +36,16 @@ public class UImanager : MonoBehaviour
     {
         inventoryState = !inventoryState;
 
+    }
+
+    public void InstructorButton()
+    {
+        instructorState = !instructorState;
+    }
+    public void cutBambooInstructor()
+    {
+        cutUI.SetActive(true);
+        InstructorButton();
     }
 
     protected virtual void Move()
@@ -53,12 +67,14 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+        cutUI.transform.position = telUI.transform.position;
+        cutUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
         if (cartTelController.Instance != null && cartTelController.Instance.getTel)
         {
             telUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Move();
         }
         else
         {
@@ -71,13 +87,26 @@ public class UImanager : MonoBehaviour
             inventoryUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Move();
             inventoryUI.transform.position = telUI.transform.position;
             inventoryUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
         }
         else
         {
             inventoryUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        if (instructorState)
+        {
+            instructorUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            instructorUI.transform.position = telUI.transform.position;
+            instructorUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
+        }
+        else
+        {
+            instructorUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

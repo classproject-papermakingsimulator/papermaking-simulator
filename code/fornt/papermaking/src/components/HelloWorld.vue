@@ -91,7 +91,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgfile: 'http://localhost:8080/api/show?num=0'
+      imgfile: 'http://localhost:8080/api/show?num=0&token=1'
     }
   },
   methods: {
@@ -101,13 +101,13 @@ export default {
         type: file.type})
       var formData = new FormData()
       formData.append('file', newfile)
-      this.axios.post('/api/share', formData)
+      this.axios.post('/api/share?token=1', formData)
         .then((response) => {
         })
         .catch((error) => {
           alert(error)
         })
-        this.imgfile = 'http://localhost:8080/api/show?num=0'
+      this.imgfile = 'http://localhost:8080/api/show?num=0&token=1'
     }
   }
 }

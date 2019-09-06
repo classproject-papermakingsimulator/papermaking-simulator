@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -138,7 +139,7 @@ public class Board : MonoBehaviour
         if (isDone)
         {
             byte[] dataBytes = currentTexture.EncodeToPNG();
-            string strSaveFile = "C:/Users/93152/Documents/My Games/papermaking/rt_" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".png";
+            string strSaveFile = "C:/Users/BlackAngle/Desktop/test/rt_" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".png";
             FileStream fs = File.Open(strSaveFile, FileMode.OpenOrCreate);
             //fs.Write(dataBytes, 0, dataBytes.Length);
             BinaryWriter writer = new BinaryWriter(fs);
@@ -147,13 +148,23 @@ public class Board : MonoBehaviour
             fs.Close();
             counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, 0);
             //gameObject.SetActive(false);
-            //UnityWebRequest request = new UnityWebRequest("http://localhost:8090/api/share", "POST");
-            //request.uploadHandler = (UploadHandler)new UploadHandlerRaw(dataBytes);
-            //request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            //request.SetRequestHeader("Authorization", "1"); //if your server need token
+            StartCoroutine(Upload(strSaveFile));
 
         }
 
+    }
+
+    IEnumerator Upload(string path)
+    {
+        WWWForm form = new WWWForm();
+        UnityWebRequest file = new UnityWebRequest();
+        file = UnityWebRequest.Get(path);
+        form.AddBinaryData("file", file.downloadHandler.data, Path.GetFileName(path));
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8900/api/share?token=1", form);
+        yield return request.SendWebRequest();
+        Debug.Log(request.error);
+        Debug.Log(request.responseCode);
+        Debug.Log(request.downloadHandler.text);
     }
 
     public void confirm()

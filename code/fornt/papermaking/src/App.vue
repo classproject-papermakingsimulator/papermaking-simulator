@@ -1,13 +1,34 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <router-view v-if="isAlive">
+    </router-view>
   </div>
 </template>
 
 <script>
+import Header from './components/header.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  provide () {
+    return {
+      reload: this.reload
+    }
+  },
+  data () {
+    return {
+      isAlive: true
+    }
+  },
+  components: {Header},
+  methods: {
+    reload () {
+      this.isAlive = false
+      this.$nextTick(function () {
+        this.isAlive = true
+      })
+    }
+  }
+
 }
 </script>
 

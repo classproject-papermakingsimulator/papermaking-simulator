@@ -91,23 +91,25 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      imgfile: 'http://localhost:8080/api/show?num=0&token=1'
+      imgfile: 'http://localhost:8080/api/show?num=0'
     }
   },
   methods: {
     uploadPhoto (e) {
-      var file = e.target.files[0]
-      var newfile = new File([file], 'BlackAngle.jpg', {
+      let file = e.target.files[0]
+      let newfile = new File([file], 'BlackAngle.jpg', {
         type: file.type})
-      var formData = new FormData()
+      let formData = new FormData()
       formData.append('file', newfile)
-      this.axios.post('/api/share?token=1', formData)
+      this.axios.post('/api/share', formData)
         .then((response) => {
+          alert('yes')
         })
+        // eslint-disable-next-line handle-callback-err
         .catch((error) => {
-          alert(error)
+          alert('aaa')
         })
-      this.imgfile = 'http://localhost:8080/api/show?num=0&token=1'
+      this.imgfile = 'http://localhost:8080/api/show?num=0'
     }
   }
 }

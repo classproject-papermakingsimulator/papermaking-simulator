@@ -10,7 +10,6 @@ import router from './router'
 Vue.config.productionTip = false
 
 Vue.use(Element)
-axios.defaults.headers.common['token'] = '1'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.axios = axios
 Vue.prototype.qs = Qs

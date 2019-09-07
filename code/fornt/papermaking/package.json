@@ -4,6 +4,7 @@
   "description": "A Vue.js project",
   "author": "BlackAngle233 <740448368@qq.com>",
   "private": true,
+  "readme": "README.md",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",

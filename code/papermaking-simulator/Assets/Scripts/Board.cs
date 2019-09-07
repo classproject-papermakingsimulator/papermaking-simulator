@@ -148,19 +148,19 @@ public class Board : MonoBehaviour
             fs.Close();
             counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, 0);
             //gameObject.SetActive(false);
-            StartCoroutine(Upload(strSaveFile));
+            StartCoroutine(Upload(strSaveFile, dataBytes));
 
         }
 
     }
 
-    IEnumerator Upload(string path)
+    IEnumerator Upload(string path, byte[] data)
     {
         WWWForm form = new WWWForm();
         UnityWebRequest file = new UnityWebRequest();
         file = UnityWebRequest.Get(path);
-        form.AddBinaryData("file", file.downloadHandler.data, Path.GetFileName(path));
-        UnityWebRequest request = UnityWebRequest.Post("http://localhost:8900/api/share?token=1", form);
+        form.AddBinaryData("file", data, Path.GetFileName(path));
+        UnityWebRequest request = UnityWebRequest.Post("http://papermakingshare.cn:8900/api/share?token=1", form);
         yield return request.SendWebRequest();
         Debug.Log(request.error);
         Debug.Log(request.responseCode);

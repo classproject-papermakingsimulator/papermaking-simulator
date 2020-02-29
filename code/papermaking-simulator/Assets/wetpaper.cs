@@ -101,7 +101,8 @@ public class wetpaper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(wets > 0 && other.tag == "plank")
+        gameObject.GetComponent<AudioSource>().Play();
+        if (wets > 0 && other.tag == "plank")
         {
             wets--;
         }

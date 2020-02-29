@@ -5,6 +5,7 @@ using VRTK;
 
 public class cutBamboo : VRTK_InteractableObject
 {
+    
     bambooInteract bam = null;
     private float impactMagnifier = 120f;
     private float collisionForce = 0f;
@@ -47,7 +48,8 @@ public class cutBamboo : VRTK_InteractableObject
         {
             if (collision.collider.tag == "bamboo")
             {
-                print(collision.collider.name);
+                //print(collision.collider.name);
+                gameObject.GetComponent<AudioSource>().Play();
                 bambooToCut.GetComponent<bambooInteract>().cutdown(vm);
                 ContactPoint contactPoint = collision.contacts[0];
                 Vector3 newDir = Vector3.zero;

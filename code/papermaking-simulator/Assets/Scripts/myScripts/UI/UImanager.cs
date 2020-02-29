@@ -8,7 +8,7 @@ public class UImanager : MonoBehaviour
     public GameObject telUI;
     public GameObject inventoryUI;
     public GameObject instructorUI;
-    public GameObject cutUI;
+    public GameObject insUI;
     public GameObject eyecamera;
     public VRTK_ControllerEvents leftController;
     public VRTK_ControllerEvents rightController;
@@ -42,9 +42,44 @@ public class UImanager : MonoBehaviour
     {
         instructorState = !instructorState;
     }
-    public void cutBambooInstructor()
+
+    public void CutBambooInstructor()
     {
-        cutUI.SetActive(true);
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(1);
+        InstructorButton();
+    }
+
+    public void PoolInstructor()
+    {
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(2);
+        InstructorButton();
+    }
+
+    public void HangerInstructor()
+    {
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(3);
+        InstructorButton();
+    }
+    public void DangInstructor()
+    {
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(4);
+        InstructorButton();
+    }
+
+    public void ShineInstructor()
+    {
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(5);
+        InstructorButton();
+    }
+    public void WriteInstructor()
+    {
+        insUI.SetActive(true);
+        insUI.GetComponent<videocontroller>().ChangeVideo(6);
         InstructorButton();
     }
 
@@ -68,8 +103,8 @@ public class UImanager : MonoBehaviour
     void Update()
     {
         Move();
-        cutUI.transform.position = telUI.transform.position;
-        cutUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
+        insUI.transform.position = telUI.transform.position;
+        insUI.transform.localEulerAngles = telUI.transform.localEulerAngles;
         if (cartTelController.Instance != null && cartTelController.Instance.getTel)
         {
             telUI.SetActive(true);

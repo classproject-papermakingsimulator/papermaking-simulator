@@ -7,10 +7,13 @@ using VRTK;
 public class BambooGrab : GrabAndThrow
 {
     public GameObject newbamboo;
+    private AudioSource audio;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "ash")
         {
+            audio = gameObject.GetComponent<AudioSource>();
+            audio.Play();
             Timer.Register(5f, () => OnChange());
         }
     }

@@ -924,13 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1e627535debf640acf02ca36bfda14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 1839407354}
-  hoverColor: {r: 0, g: 1, b: 1, a: 1}
-  selectColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  logEnterEvent: 1
-  logHoverEvent: 0
-  logExitEvent: 1
-  logSetEvent: 1
 --- !u!1 &144502621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,10 +3221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea5335256d44a94bab9d156994a3f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftController: {fileID: 0}
-  rightController: {fileID: 0}
-  leftHandAvatar: {fileID: 0}
-  rightHandAvatar: {fileID: 0}
 --- !u!1 &524295930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,13 +3343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1e627535debf640acf02ca36bfda14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 1449583769}
-  hoverColor: {r: 0, g: 1, b: 1, a: 1}
-  selectColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  logEnterEvent: 1
-  logHoverEvent: 0
-  logExitEvent: 1
-  logSetEvent: 1
 --- !u!1 &559824083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,8 +3555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cee710ccfd4564fba2718900f56c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backKey: 8
-  forwardKey: 32
 --- !u!1 &615277852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10141,7 +10121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd363faecdfb6d4da2d9cdab9de34f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceOculusFloorLevel: 1
 --- !u!114 &1493405224
 MonoBehaviour:
   m_ObjectHideFlags: 0

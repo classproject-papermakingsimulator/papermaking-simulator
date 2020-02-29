@@ -139,27 +139,28 @@ public class Board : MonoBehaviour
         if (isDone)
         {
             byte[] dataBytes = currentTexture.EncodeToPNG();
-            string strSaveFile = "C:/Users/BlackAngle/Desktop/test/rt_" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".png";
+            string strSaveFile = Application.dataPath + "/" + System.DateTime.Now.Minute + "_" + System.DateTime.Now.Second + ".jpg";
             FileStream fs = File.Open(strSaveFile, FileMode.OpenOrCreate);
             //fs.Write(dataBytes, 0, dataBytes.Length);
             BinaryWriter writer = new BinaryWriter(fs);
             writer.Write(dataBytes);
             fs.Flush();
             fs.Close();
-            counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, 0);
             //gameObject.SetActive(false);
-            StartCoroutine(Upload(strSaveFile, dataBytes));
+            StartCoroutine(Upload(strSaveFile));
 
         }
 
     }
 
-    IEnumerator Upload(string path, byte[] data)
+    IEnumerator Upload(string path)
     {
+        byte[] dataBytes = currentTexture.EncodeToPNG();
+        counter.transform.position = new Vector3(counter.transform.position.x, counter.transform.position.y, 0);
         WWWForm form = new WWWForm();
         UnityWebRequest file = new UnityWebRequest();
         file = UnityWebRequest.Get(path);
-        form.AddBinaryData("file", data, Path.GetFileName(path));
+        form.AddBinaryData("file", dataBytes, Path.GetFileName(path));
         UnityWebRequest request = UnityWebRequest.Post("http://papermakingshare.cn:8900/api/share?token=1", form);
         yield return request.SendWebRequest();
         Debug.Log(request.error);

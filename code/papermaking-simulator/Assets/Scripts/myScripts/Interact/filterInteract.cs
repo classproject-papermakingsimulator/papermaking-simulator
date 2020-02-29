@@ -5,6 +5,9 @@ using VRTK;
 
 public class filterInteract : MonoBehaviour
 {
+    private AudioSource audio;
+    public GameObject uper;
+    public GameObject downer;
     public GameObject l1;
     public GameObject l2;
     public GameObject l3;
@@ -21,6 +24,7 @@ public class filterInteract : MonoBehaviour
         this.hasCollided = true;
         if (other.tag == "tub")         
         {
+            audio.Play();
             if (!isWater)
             {
                 isWater = true;
@@ -31,8 +35,10 @@ public class filterInteract : MonoBehaviour
         {
             wetpapers.GetComponent<wetpaper>().add();
             isPaper = false;
+            uper.SetActive(false);
+            downer.SetActive(false);
         }
-        Timer.Register(1f, () => { this.hasCollided = false; });
+        Timer.Register(0.4f, () => { this.hasCollided = false; });
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,6 +49,10 @@ public class filterInteract : MonoBehaviour
         //}
     }
 
+    private void Start()
+    {
+        audio = gameObject.GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (isWater)
@@ -55,6 +65,8 @@ public class filterInteract : MonoBehaviour
         {
             count = 0;
             isPaper = true;
+            uper.SetActive(true);
+            downer.SetActive(true);
         }
     }
 
@@ -101,7 +113,7 @@ public class filterInteract : MonoBehaviour
         if (point1.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
             angle = Mathf.Abs((point2.position.y - point1.position.y) / (point2.position.x - point1.position.x));
-            if (angle < 1 && angle > 0.577)
+            if (angle < 1 && angle > 0.267)
             {
                 count++;
             }
@@ -110,14 +122,14 @@ public class filterInteract : MonoBehaviour
         if (point2.position.y == Mathf.Min(point1.position.y, point2.position.y, point3.position.y, point4.position.y))
         {
             angle = Mathf.Abs((point2.position.y - point1.position.y) / (point2.position.x - point1.position.x));
-            if (angle < 1 && angle > 0.577)
+            if (angle < 1 && angle > 0.267)
             {
                 count++;
             }
             return;
         }
         angle = Mathf.Abs((point3.position.y - point4.position.y) / (point3.position.x - point4.position.x));
-        if (angle < 1 && angle > 0.577)
+        if (angle < 1 && angle > 0.267)
         {
             count++;
         }

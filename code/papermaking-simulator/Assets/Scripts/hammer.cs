@@ -41,6 +41,7 @@ public class hammer : VRTK_InteractableObject
         this.hasCollided = true;
         if (VRTK_ControllerReference.IsValid(controllerReference) && IsGrabbed())
         {
+            gameObject.GetComponent<AudioSource>().Play();
             collisionForce = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude * impactMagnifier;
             var hapticStrength = collisionForce / maxCollisionForce;
             VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, hapticStrength, 0.1f, 0.01f);

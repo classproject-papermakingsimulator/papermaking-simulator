@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BoxWater 9
+  m_Shader: {fileID: 4800000, guid: 5d2004f4e9b5bb94a8d0a2e6b6631252, type: 3}
+  m_ShaderKeywords: DEPTHTEXTURE_ON REFLECTION_ON TWONORMALS_ON
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EnvironmentTex:
+        m_Texture: {fileID: 8400000, guid: a86c7dbf68a136041950f2a40e8c068e, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 2800000, guid: 2f168984304964542bf660d7cacd29a5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e6329ca7436f641b1b0b7191947b1d4a, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal2Tex:
+        m_Texture: {fileID: 2800000, guid: cf105a4f96a7ec84084172184718649e, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AmbientMultiplier: 1
+    - _BlendOver: 0
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EdgeFade: 0.17
+    - _EmissionScaleUI: 0
+    - _FallbackShallowAlpha: 0.49
+    - _FoamDistance: 0.069
+    - _FoamRefraction: 0.1
+    - _FoamScale: 4.32
+    - _Glossiness: 0.5
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalStrength: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Reflectivity: 0
+    - _Refraction: 0.84
+    - _ShallowDeepFade: 0.17
+    - _ShallowDepth: 0.8
+    - _Shininess: 200
+    - _ShoreEdgeIndicator: 0.1
+    - _ShoreFoamRange: 0
+    - _SrcBlend: 1
+    - _Transparency: 0.808
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DeepSeaColor: {r: 0.1112673, g: 0.19437714, b: 0.30882353, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _LightDir: {r: 0, g: 2.64, b: 0, a: 0}
+    - _MainColor: {r: 0.1355969, g: 0.39847267, b: 0.4852941, a: 1}
+    - _Movement: {r: 0.1, g: 0, b: 0.09, a: 0.01}
+    - _ShallowColor: {r: 0.19755623, g: 0.47504333, b: 0.6397059, a: 1}
+    - _ShoreFoamMovement: {r: 0, g: 0, b: 0, a: 0}
+    - _UVOffset: {r: 0, g: 0, b: 0, a: 0}

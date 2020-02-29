@@ -102,6 +102,7 @@ public class bambooInteract : MonoBehaviour
     {
         if(count == 1 || count == 2)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             counter.transform.position = new Vector3(0, counter.transform.position.y, counter.transform.position.z);
             down = true;
         }
@@ -113,12 +114,12 @@ public class bambooInteract : MonoBehaviour
         if(down)
         {
             bamboo.GetComponent<MeshCollider>().enabled = true;
-            if (r < 3)
+            if (r < 4)
             {
                 Debug.Log("daodi");
                 r += Time.deltaTime;
                 Debug.Log(r);
-                transform.RotateAround(cubeA.position, cubeA.right, -0.5f);
+                transform.RotateAround(cubeA.position, cubeA.right, -0.2f);
                 Debug.Log("here");
             }
             else if (d < 1)

@@ -31,7 +31,7 @@ public class exit : MonoBehaviour
 
     public void aExit()
     {
-        path = "C:/Users/93152/Documents/My Games/papermaking/save.txt";
+        path = Application.dataPath + "/save.txt";
         FileStream fs = File.Open(path, FileMode.OpenOrCreate);
         num[0] = number1.GetComponent<Text>().text + "\r\n";
         num[1] = number2.GetComponent<Text>().text + "\r\n";

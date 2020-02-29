@@ -27,6 +27,12 @@ TagManager:
   - Board
   - LetterKey
   - Keys
+  - ins1
+  - ins2
+  - ins3
+  - ins4
+  - ins5
+  - ins6
   layers:
   - Default
   - TransparentFX

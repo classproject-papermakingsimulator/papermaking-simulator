@@ -21,7 +21,7 @@ public class toSave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        path = "C:/Users/93152/Documents/My Games/papermaking/save.txt";
+        path = Application.dataPath + "/save.txt";
         StreamReader sr = new StreamReader(path, Encoding.Default);  //path为文件路径
         String line;
         int i = 0;
